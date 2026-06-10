@@ -1,4 +1,5 @@
 :root {
+
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -64,6 +65,8 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 h1,

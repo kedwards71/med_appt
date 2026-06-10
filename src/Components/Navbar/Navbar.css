@@ -3,14 +3,18 @@
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
     color: white;
+    padding: 0;
 }
 body{
-    background-image: linear-gradient(-40deg,rgba(169, 252, 255, .64),rgba(161,252,255,.64), rgba(125,216,255,.64), rgba(82,157,255,0.7), rgba(81,188,255,1)) , url("../assets/doctorLandingPage.jpg");
+    background-image: linear-gradient(-40deg,rgba(169, 252, 255, .64),rgba(161,252,255,.64), rgba(125,216,255,.64), rgba(82,157,255,0.7), rgba(81,188,255,1)) , url("../../assets/doctorLandingPage.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size:cover;
     background-blend-mode:overlay;
     background-position: bottom right;
+    color: white;
+    margin: 0;
+    padding: 0;
 }
 /* Navigation Bar */
 .navbar{
@@ -22,10 +26,16 @@ body{
     width: 100%;
     position: fixed;
     padding: 10px;
+    color: white;
 }
 
 .card{
     background:white;
+}
+
+.container{
+    margin: 0;
+    padding: 0d;
 }
 
 .navbarItems{
