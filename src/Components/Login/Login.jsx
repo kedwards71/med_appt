@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import './Login.css'
 import { useNavigate } from "react-router-dom";
 import {API_URL} from '../../../src/config.js';
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const [password,setPassword] = useState("");

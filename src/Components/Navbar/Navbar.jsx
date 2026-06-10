@@ -15,6 +15,7 @@ const Navbar = () => {
     function handleLogout(){
         alert("")
         sessionStorage.setItem("email","");
+        sessionStorage.removeItem("auth-token")
         setEmail(sessionStorage.getItem('email'));
     }
     function handleClick(){
