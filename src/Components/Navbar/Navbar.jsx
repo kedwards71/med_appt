@@ -13,7 +13,6 @@ const Navbar = () => {
             name =(email.slice(0,index));
         }
     function handleLogout(){
-        alert("")
         sessionStorage.setItem("email","");
         sessionStorage.removeItem("auth-token")
         setEmail(sessionStorage.getItem('email'));
