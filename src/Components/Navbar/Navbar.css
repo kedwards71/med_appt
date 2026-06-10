@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
@@ -15,7 +15,7 @@ body{
     color: white;
     margin: 0;
     padding: 0;
-}
+} */
 /* Navigation Bar */
 .navbar{
     margin: 10px;
@@ -29,21 +29,13 @@ body{
     color: white;
 }
 
-.card{
-    background:white;
-}
-
-.container{
-    margin: 0;
-    padding: 0d;
-}
 
 .navbarItems{
     display: flex;
     flex-direction: row-reverse;
     gap: 1rem;
     list-style-type: none;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 500;
     padding-right: 3rem;
 
@@ -51,6 +43,7 @@ body{
 
 .navbar a{
     text-decoration: none;
+    color: white;
 }
 .navbar a:hover{
     color: aqua;
