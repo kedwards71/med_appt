@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './Login.css'
 import { useNavigate } from "react-router-dom";
+import {API_URL} from '../../../src/config.js';
 
 const Login = () => {
     const [password,setPassword] = useState("");
@@ -58,7 +59,7 @@ const Login = () => {
             <div class="card">
                 <form class="loginForm" onSubmit={login}>
                     <h2>Login</h2>
-                    <p>Don't have an account? <a href="/Sign_Up"><span>Sign Up</span></a></p>
+                    <p>Don't have an account? <Link to="/Sign_Up"><span>Sign Up</span></Link></p>
 
                     <div class="formItem">
                         <label for="email">Email</label>

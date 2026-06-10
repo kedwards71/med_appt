@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './Navbar.css'
 import medicalTeam from '../../assets/medical-team.png'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
         const [email,setEmail] = useState(sessionStorage.getItem('email'));
@@ -59,13 +60,12 @@ const Navbar = () => {
                         </>
 
                         : 
-                        <li className="link"><a href="/Login">Login</a></li>
+                        <li className="link"><Link to="/Login">Login</Link></li>
                     }
-                    {/* <li className="link"><a href="/Login">Login</a></li> */}
-                    <li className="link"><a href="/Sign_Up">Sign-Up</a></li>
-                    <li className="link"><a href="#reviews">Reviews</a></li>
-                    <li className="link"><a href="#appointments">Appointments</a></li>
-                    <li className="link"><a href="/">Home</a></li>
+                    <li className="link"><Link to="/Sign_Up">Sign-Up</Link></li>
+                    <li className="link"><Link to="#reviews">Reviews</Link></li>
+                    <li className="link"><Link to="/instant-consultation">Appointments</Link></li>
+                    <li className="link"><Link to="/">Home</Link></li>
                 </ul>
             </nav>
 
