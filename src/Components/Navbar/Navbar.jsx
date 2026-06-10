@@ -39,11 +39,11 @@ const Navbar = () => {
 
                 {/* <!-- Individual Links in the same group --> */}
                 <ul className="navbarItems">
-                    <li className="link"><a href="../Login/Login.html">Login</a></li>
-                    <li className="link"><a href="../Sign_Up/Sign_Up.html">Sign-Up</a></li>
+                    <li className="link"><a href="/Login">Login</a></li>
+                    <li className="link"><a href="/Sign_Up">Sign-Up</a></li>
                     <li className="link"><a href="#reviews">Reviews</a></li>
                     <li className="link"><a href="#appointments">Appointments</a></li>
-                    <li className="link"><a href="#home">Home</a></li>
+                    <li className="link"><a href="/">Home</a></li>
                 </ul>
             </nav>
 

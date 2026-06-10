@@ -5,7 +5,7 @@
     /* color: white; */
 }
 body{
-    background-image: linear-gradient(-40deg,rgba(169, 252, 255, .64),rgba(161,252,255,.64), rgba(125,216,255,.64), rgba(82,157,255,0.7), rgba(81,188,255,1));
+    background-image: linear-gradient(-40deg,rgba(169, 252, 255, .64),rgba(161,252,255,.64) 25%, rgba(125,216,255,.64) 57%, rgba(82,157,255,0.7) 91%, rgba(81,188,255,1) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size:cover;
@@ -16,7 +16,7 @@ body{
 .card{
     color: black;
     display: flex;
-    margin-top: 5rem;
+    margin-top: 6rem;
     padding: 30px;
     justify-self: center;
     justify-content: center;
@@ -26,7 +26,8 @@ body{
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,.30);
     box-shadow: -10px 10px 20px rgba(0,0,0,0.3);
-    width: 300px;
+    width: 400px;
+    text-align: left;
 
 
 }
@@ -38,15 +39,27 @@ body{
     gap: 20px;
 }
 
+.signUpForm h2{
+    color: white;
+    justify-self: center;
+}
+
 .formItem{
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.formItem input{
+.formItem input, select{
     height: 2rem;
 }
+
+.formButtons{
+    display: flex;
+    gap: 10px;
+}
+
+
 .btn{
     padding: 10px 20px;
     font-size: 16px;
