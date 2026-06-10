@@ -10,10 +10,11 @@ const Sign_Up = () =>{
     // const [lName,setLName] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
+    const [phone, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const [showerr, setShowerr] = useState(''); 
     const navigate = useNavigate();
+    console.log(sessionStorage.getItem("email"))
 
     const register = async (e) =>{
         e.preventDefault();
@@ -30,7 +31,7 @@ const Sign_Up = () =>{
                 // lName: lName,
                 name:name,
                 email: email,
-                phoneNumber: phoneNumber,
+                phone: phone,
                 password: password,
             }),
 
@@ -45,7 +46,7 @@ const Sign_Up = () =>{
             // sessionStorage.setItem("lName",lName);
             sessionStorage.setItem('name',name);
             sessionStorage.setItem("email",email);
-            sessionStorage.setItem("phoneNumber",phoneNumber);
+            sessionStorage.setItem("phone",phone);
             sessionStorage.setItem("password",password);
             //Redirect to home page
             navigate("/");
@@ -102,8 +103,8 @@ const Sign_Up = () =>{
                         {/* {showerr && <div className="err" style={{color:'red'}}>{showerr}</div>} */}
                     </div>
                     <div class="formItem">
-                        <label for="phoneNumber">Phone Number</label>
-                        <input type="text" name="phoneNumber" value={phoneNumber} id="phoneNumber" onChange={(e)=>setPhoneNumber(e.target.value)} placeholder="123-456-7890" pattern="[1-9]{3}-[0-9]{3}-[0-9]{4}$" required/>
+                        <label for="phone">Phone Number</label>
+                        <input type="text" name="phone" value={phone} id="phone" onChange={(e)=>setPhoneNumber(e.target.value)} placeholder="123-456-7890" pattern="[1-9]{3}-[0-9]{3}-[0-9]{4}$" required/>
                         {/* {showerr && <div className="err" style={{color:'red'}}>{showerr}</div>} */}
 
                     </div>

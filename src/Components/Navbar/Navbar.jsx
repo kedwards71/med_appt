@@ -1,8 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Navbar.css'
 import medicalTeam from '../../assets/medical-team.png'
 
 const Navbar = () => {
+        const [email,setEmail] = useState(sessionStorage.getItem('email'));
+        // const [name,setName] = useState('');
+        let name = '';
+        if(email)
+        {
+            const index = email.indexOf('@');
+            name =(email.slice(0,index));
+        }
+    function handleLogout(){
+        alert("")
+        sessionStorage.setItem("email","");
+        setEmail(sessionStorage.getItem('email'));
+    }
     function handleClick(){
         const navbarItems = document.querySelector(".navbarItems");
         const navIcon = document.querySelector(".nav__icon i");
@@ -39,7 +52,16 @@ const Navbar = () => {
 
                 {/* <!-- Individual Links in the same group --> */}
                 <ul className="navbarItems">
-                    <li className="link"><a href="/Login">Login</a></li>
+                    {email && email.trim() !== '' ? 
+                        <>
+                            <li className="link" style={{display:"flex",gap:"10px", alignItems:"baseline"}}>                            <p className='welcome-user'>Hello,<strong>{name}</strong></p> <button className='btn btn-danger mb-2 waves-effect waves-light' onClick={handleLogout}>Logout</button></li>
+
+                        </>
+
+                        : 
+                        <li className="link"><a href="/Login">Login</a></li>
+                    }
+                    {/* <li className="link"><a href="/Login">Login</a></li> */}
                     <li className="link"><a href="/Sign_Up">Sign-Up</a></li>
                     <li className="link"><a href="#reviews">Reviews</a></li>
                     <li className="link"><a href="#appointments">Appointments</a></li>

@@ -38,6 +38,7 @@ body{
     font-size: 1.2rem;
     font-weight: 500;
     padding-right: 3rem;
+    align-items: baseline;
 
 }
 
@@ -48,6 +49,7 @@ body{
 .navbar a:hover{
     color: aqua;
 }
+
 
 /* dropdown menu */
 /* .dropdown-menu{
@@ -64,10 +66,12 @@ body{
 } */
 
 /* Welcome user */
-/* .welcome-user{
+.welcome-user{
     position: relative;
     cursor: pointer;
-} */
+    text-decoration: underline;
+    position: relative;
+}
 
 /* displaydropdown menu hover */
 /* .welcome-user:hover .dropdown-menu {
@@ -110,7 +114,7 @@ body{
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 768px){
+@media (max-width: 1158px){
     .nav__logo{
         margin-right: auto;
     }
