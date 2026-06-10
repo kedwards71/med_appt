@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    /* color: white; */
+}
+body{
+    background-image: linear-gradient(-40deg,rgba(169, 252, 255, .64),rgba(161,252,255,.64), rgba(125,216,255,.64), rgba(82,157,255,0.7), rgba(81,188,255,1));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    background-blend-mode:overlay;
+    background-position: bottom right;
+}
+
+.card{
+    color: black;
+    display: flex;
+    margin-top: 5rem;
+    padding: 30px;
+    justify-self: center;
+    justify-content: center;
+    background: rgba(125,216,255,.15);
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.30);
+    box-shadow: -10px 10px 20px rgba(0,0,0,0.3);
+    width: 300px;
+
+
+}
+
+.signUpForm{
+    display:flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px;
+}
+
+.formItem{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formItem input{
+    height: 2rem;
+}
+.btn{
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary{
+    background: #01991D;
+    color: white;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.btn-danger{
+    background: #EC221F;
+    color: white;
+    border-radius: 8px;
+}

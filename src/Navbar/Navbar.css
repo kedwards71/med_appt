@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    color: white;
+}
+body{
+    background-image: linear-gradient(-40deg,rgba(169, 252, 255, .64),rgba(161,252,255,.64), rgba(125,216,255,.64), rgba(82,157,255,0.7), rgba(81,188,255,1)) , url("../assets/doctorLandingPage.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    background-blend-mode:overlay;
+    background-position: bottom right;
+}
+/* Navigation Bar */
+.navbar{
+    margin: 10px;
+    background-color: rgba(114, 114, 114, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    padding: 10px;
+}
+
+.card{
+    background:white;
+}
+
+.navbarItems{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    list-style-type: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding-right: 3rem;
+
+}
+
+.navbar a{
+    text-decoration: none;
+}
+.navbar a:hover{
+    color: aqua;
+}
+
+/* dropdown menu */
+/* .dropdown-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display: none;
+    min-width: 120px;
+    padding: 8px 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 4px;
+} */
+
+/* Welcome user */
+/* .welcome-user{
+    position: relative;
+    cursor: pointer;
+} */
+
+/* displaydropdown menu hover */
+/* .welcome-user:hover .dropdown-menu {
+    display: block;
+} */
+
+/* dropdown-menu */
+/* .dropdown-menu li{
+    display: block;
+    width: 150px;
+    padding: 5px;
+} */
+
+/* links for dropdown */
+/* .dropdown-menu li a{
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+} */
+
+/* hover links */
+/* .dropdown-menu li a:hover {
+    color: aqua;
+} */
+
+/* nav logo */
+.nav__logo{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    display:flex;
+    align-items: center;
+}
+
+.nav__icon{
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px){
+    .nav__logo{
+        margin-right: auto;
+    }
+
+    .nav__icon{
+        display: block;
+        padding-right: 1rem;
+    }
+    .navbarItems{
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .navbarItems.active{
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        margin: auto;
+        background-color: rgba(78, 78, 78, 0.5);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 10px rgba(167, 64, 64, 0.1);
+        z-index: 999;
+        animation: slideDown 0.5s ease-in-out;
+    }
+
+}
+
+/* Keyframs for slideDown */
+@keyframes slideDown {
+    0%{
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
