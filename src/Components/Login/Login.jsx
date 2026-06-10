@@ -1,22 +1,72 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './Login.css'
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const [password,setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const navigate = useNavigate();
+
+    useEffect(() =>{
+        if(sessionStorage.getItem("auth-token")){
+            navigate('/');
+        }
+    }, []);
+
+
+    const login = async (e) => {
+        e.preventDefault();
+        // Send a POST request to the login API endpoint
+        const res = await fetch(`${API_URL}/api/auth/login`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
+        });
+    
+        // Parse the response JSON
+        const json = await res.json();
+        if (json.authtoken) {
+          // If authentication token is received, store it in session storage
+          sessionStorage.setItem('auth-token', json.authtoken);
+          sessionStorage.setItem('email', email);
+    
+          // Redirect to home page and reload the window
+          navigate('/');
+          window.location.reload();
+        } else {
+          // Handle errors if authentication fails
+          if (json.errors) {
+            for (const error of json.errors) {
+              alert(error.msg);
+            }
+          } else {
+            alert(json.error);
+          }
+        }
+      };
+
     return (
+
+
         <>
         <div class="container">
             <div class="card">
-                <form class="loginForm">
+                <form class="loginForm" onSubmit={login}>
                     <h2>Login</h2>
                     <p>Don't have an account? <a href="/Sign_Up"><span>Sign Up</span></a></p>
 
                     <div class="formItem">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Email" required/>
+                        <input type="email" name="email" id="email" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}required/>
                     </div>
                     <div class="formItem">
                         <label for="Password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Password" required/>
+                        <input type="password" name="password" id="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} required/>
                     </div>
                     <div class="formButtons">
                         <button type="submit" id="submitButton" class="btn btn-primary mb-2 mr-1 waves-effect waves-light">Login</button>
