@@ -25,50 +25,55 @@ const FindDoctorSearch = () => {
     const [categories,setCategories] = useState(initCategories);
     const navigate = useNavigate();
 
+    const removeEle = (ele) => {
+        while(ele.firstChild){
+            ele.removeChild(ele.firstChild);
+        }
+    }
     const handleDoctorSelect = (category) => {
     }
 
     const handleCategorySelect = (category) => {
+        const searchBar = document.querySelector("#search-bar");
+        searchBar.hidden = true;
         category = category.toLowerCase();
         alert(category + ' chosen');
         if(category === 'name' ){
             const nameSearchContainer = document.createElement('div');
-            nameSearchContainer.id = 'nameSearchContainer';
+            nameSearchContainer.id = 'catSearchContainer';
 
             const doctorSearch = document.createElement('input');
-            doctorSearch.id = 'nameDoctorSearch';
+            doctorSearch.id = 'catDoctorSearch';
             doctorSearch.placeholder = 'Enter name Here';
 
             const nameSearchButton = document.createElement('button');
             nameSearchButton.textContent = 'Search'
             nameSearchButton.onclick= () => {
-                    while(nameSearchContainer.firstChild)
-                    {
-                        nameSearchContainer.removeChild(nameSearchContainer.firstChild);
-                    }
+                removeEle(nameSearchContainer);
                 alert(`Looking for doctors with '${doctorSearch.value}' in their name`)
+                searchBar.hidden = false;
             };
             nameSearchContainer.appendChild(doctorSearch);
             nameSearchContainer.appendChild(nameSearchButton);
             
-            const container = document.querySelector('.search-box');
+            const container = document.querySelector('.search-container');
             container.appendChild(nameSearchContainer);
         } else if (category === 'ratings') {
             const ratingSearchContainer = document.createElement('div');
-            ratingSearchContainer.id = 'ratingSearchContainer';
+            ratingSearchContainer.id = 'catSearchContainer';
 
             const doctorSearch = document.createElement('input');
-            doctorSearch.id = 'ratingDoctorSearch';
+            doctorSearch.id = 'catDoctorSearch';
             doctorSearch.placeholder = 'Search by rating';
             
             const doctorSearchInputResults = document.createElement('div');
-            doctorSearchInputResults.id='doctorSearchInputResults';
+            doctorSearchInputResults.id='catSearchInputResults';
             doctorSearchInputResults.hidden = true;
             doctorSearch.onfocus =() => {
-                document.querySelector('#doctorSearchInputResults').hidden = false; 
+                document.querySelector('#catSearchInputResults').hidden = false; 
             };
             doctorSearch.onblur =() => {
-                document.querySelector('#doctorSearchInputResults').hidden = true;
+                document.querySelector('#catSearchInputResults').hidden = true;
             };
             doctorSearch.onchange = (e) =>{
                 alert(e.target.value);
@@ -77,14 +82,11 @@ const FindDoctorSearch = () => {
             for (let rating of ratings)
             {
                 const doctorSearchResultItem = document.createElement('div');
-                doctorSearchResultItem.id='doctorSearchResultItem';
+                doctorSearchResultItem.id='catSearchResultItem';
                 doctorSearchResultItem.onmousedown=() =>{
-                    while(ratingSearchContainer.firstChild)
-                    {
-                        ratingSearchContainer.removeChild(ratingSearchContainer.firstChild);
-                    }
-
+                    removeEle(ratingSearchContainer);
                     alert(`Looking for doctors with at least ${rating.length} stars`);
+                    searchBar.hidden = false;
                 } 
                 const span = document.createElement('span');
                 span.textContent = rating;
@@ -94,15 +96,15 @@ const FindDoctorSearch = () => {
             ratingSearchContainer.appendChild(doctorSearch);
             ratingSearchContainer.appendChild(doctorSearchInputResults);
 
-            const container = document.querySelector('.search-box');
+            const container = document.querySelector('.search-container');
             container.appendChild(ratingSearchContainer);
 
         } else if (category === 'experience') {
             const experienceSearchContainer = document.createElement('div');
-            experienceSearchContainer.id = 'experienceSearchContainer';
+            experienceSearchContainer.id = 'catSearchContainer';
 
             const doctorSearch = document.createElement('input');
-            doctorSearch.id = 'experienceDoctorSearch';
+            doctorSearch.id = 'catDoctorSearch';
             doctorSearch.type = 'number';
             doctorSearch.step = 1;
             doctorSearch.min = 1;
@@ -112,48 +114,44 @@ const FindDoctorSearch = () => {
             const numberSearchButton = document.createElement('button');
             numberSearchButton.textContent = 'Search';
             numberSearchButton.onclick = () => {
-                while(experienceSearchContainer.firstChild){
-                    experienceSearchContainer.removeChild(experienceSearchContainer.firstChild)
-                }
+                removeEle(experienceSearchContainer);
+                searchBar.hidden = false;
                 alert(`Looking for doctors with atleast ${doctorSearch.value} years of experience`);
             }
 
             experienceSearchContainer.appendChild(doctorSearch);
             experienceSearchContainer.appendChild(numberSearchButton);
 
-            const container = document.querySelector('.search-box')
+            const container = document.querySelector('.search-container')
             container.append(experienceSearchContainer);
 
         } else if (category === 'speciality') {
             const specialitySearchContainer = document.createElement('div');
-            specialitySearchContainer.id = 'specialitySearchContainer';
+            specialitySearchContainer.id = 'catSearchContainer';
 
             const doctorSearch = document.createElement('input');
-            doctorSearch.id = 'specialityDoctorSearch';
+            doctorSearch.id = 'catDoctorSearch';
             doctorSearch.placeholder = 'Search by speciality';
 
             const doctorSearchInputResults = document.createElement('div');
-            doctorSearchInputResults.id = 'doctorSearchInputResults';
+            doctorSearchInputResults.id = 'catSearchInputResults';
             doctorSearchInputResults.hidden = true;
             doctorSearch.onfocus = () => {
-                document.querySelector('#doctorSearchInputResults').hidden = false;
+                document.querySelector('#catSearchInputResults').hidden = false;
             };
             doctorSearch.onblur = () => {
-                document.querySelector('#doctorSearchInputResults').hidden = true;
+                document.querySelector('#catSearchInputResults').hidden = true;
             };
             doctorSearch.onchange = (e) => {
                 alert(e.target.value);
             }
             for (let speciality of specialities){
                 const doctorSearchResultItem = document.createElement('div');
-                doctorSearchResultItem.id = 'doctorSearchResultItem';
+                doctorSearchResultItem.id = 'catSearchResultItem';
                 doctorSearchResultItem.onmousedown = () => {
-                    while(specialitySearchContainer.firstChild)
-                    {
-                        specialitySearchContainer.removeChild(specialitySearchContainer.firstChild);
-                    }
-
+                    removeEle(specialitySearchContainer);
                     alert(`Looking for doctors that are ${speciality}`);
+                    searchBar.hidden=false
                 } 
                 const span = document.createElement('span');
                 span.textContent = speciality;
@@ -163,7 +161,7 @@ const FindDoctorSearch = () => {
             specialitySearchContainer.appendChild(doctorSearch);
             specialitySearchContainer.appendChild(doctorSearchInputResults);
 
-            const container = document.querySelector('.search-box');
+            const container = document.querySelector('.search-container');
             container.appendChild(specialitySearchContainer);
         }
     }
