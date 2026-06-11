@@ -97,6 +97,30 @@ const FindDoctorSearch = () => {
             container.appendChild(ratingSearchContainer);
 
         } else if (category === 'experience') {
+            const experienceSearchContainer = document.createElement('div');
+            experienceSearchContainer.id = 'experienceSearchContainer';
+
+            const doctorSearch = document.createElement('input');
+            doctorSearch.id = 'experienceDoctorSearch';
+            doctorSearch.type = 'number';
+            doctorSearch.step = 1;
+            doctorSearch.min = 1;
+            doctorSearch.max = 30;
+
+            const numberSearchButton = document.createElement('button');
+            numberSearchButton.textContent = 'Search';
+            numberSearchButton.onclick = () => {
+                while(experienceSearchContainer.firstChild){
+                    experienceSearchContainer.removeChild(experienceSearchContainer.firstChild)
+                }
+                alert(`Looking for doctors with atleast ${doctorSearch.value} years of experience`);
+            }
+
+            experienceSearchContainer.appendChild(doctorSearch);
+            experienceSearchContainer.appendChild(numberSearchButton);
+
+            const container = document.querySelector('.search-container')
+            container.append(experienceSearchContainer);
 
         } else if (category === 'speciality') {
             const specialitySearchContainer = document.createElement('div');
