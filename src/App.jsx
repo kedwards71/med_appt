@@ -6,6 +6,7 @@ import Sign_Up from "./Components/Sign_Up/Sign_Up"
 import Login from "./Components/Login/Login"
 import InstantConsultation from "./Components/InstantConsultationBooking/InstantConsultation.jsx"
 import FindDoctorSearch from "./Components/FindDoctorSearch/FindDoctorSearch.jsx"
+import FindDoctorSearchIC from "./Components/InstantConsultationBooking/FindDoctorSearchIC/FindDoctorSearchIC.jsx"
 
 function App() {
 
