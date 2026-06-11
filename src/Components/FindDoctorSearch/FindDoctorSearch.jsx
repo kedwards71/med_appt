@@ -21,8 +21,6 @@ const FindDoctorSearch = () => {
     const [searchDoctor, setSearchDoctor] = useState('');
     const [specialities, setSpecialities] = useState(initSpeciality);
     const [ratings,setRatings] = useState(initRatings);
-    const [name,setName] = useState('');
-    const [experience,setExperience] = useState(0);
     const [categories,setCategories] = useState(initCategories);
     const navigate = useNavigate();
 
@@ -32,6 +30,8 @@ const FindDoctorSearch = () => {
         }
     }
     const handleDoctorSelect = (category,catValue) => {
+        setSearchDoctor(catValue);
+        setDoctorResultHidden(true);
         navigate(`/instant-consultation?${category}=${catValue}`);
         window.location.reload();
     }
@@ -177,6 +177,7 @@ const FindDoctorSearch = () => {
     return(
         <div className="container">
             <centered>
+            <h1>Find a doctor and Consult instantly</h1>
                 <div className="search-container">
                     <div className="search-box">
                         <input type="search" name="search-bar" id="search-bar" onFocus={() => setDoctorResultHidden(false)} onBlur={() => setDoctorResultHidden(true)} value={searchDoctor} onChange={(e) => setSearchDoctor(e.target.value)} placeholder="Select a category" />
