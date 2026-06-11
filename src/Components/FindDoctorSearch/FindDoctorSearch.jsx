@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import './FindDoctorSearch.css'
 import {useNavigate} from 'react-router-dom';
-import categoryLogo from '../../assets/category-svgrepo-com.svg'
+import categoryLogo from '../../assets/category-svgrepo-com.svg';
+import searchLogo from '../../assets/search.svg';
 
 const initSpeciality = [
     'Dentist', 'Gynecologist/obstetrician', 'General Physician', 'Dermatologist', 'Ear-nose-throat (ent) Specialist', 'Homeopath', 'Ayurveda'
@@ -108,7 +109,7 @@ const FindDoctorSearch = () => {
             doctorSearch.type = 'number';
             doctorSearch.step = 1;
             doctorSearch.min = 1;
-            doctorSearch.max = 30;
+            doctorSearch.max = 120;
             doctorSearch.value = 1;
 
             const numberSearchButton = document.createElement('button');
@@ -169,7 +170,7 @@ const FindDoctorSearch = () => {
 
     return(
         <div className="container">
-            <center>
+            <centered>
                 <div className="search-container">
                     <div className="search-box">
                         <input type="search" name="search-bar" id="search-bar" onFocus={() => setDoctorResultHidden(false)} onBlur={() => setDoctorResultHidden(true)} value={searchDoctor} onChange={(e) => setSearchDoctor(e.target.value)} placeholder="Select a category" />
@@ -186,7 +187,7 @@ const FindDoctorSearch = () => {
                         </div>
                     </div>
                 </div>
-            </center>
+            </centered>
         </div>
     )
 }

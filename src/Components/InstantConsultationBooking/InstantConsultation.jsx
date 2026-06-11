@@ -22,7 +22,30 @@ const InstantConsultation = () => {
                 
                 setIsSearched(true);
                 window.reload()
-            } else {
+            } else if (searchParams.get('name')) {
+                const target = searchParams.get('name').toLowerCase();
+                const filtered = data.filter(doctor =>
+                    doctor.name.toLowerCase().includes(target)
+                    
+                );
+                setFilteredDoctors(filtered);
+                setIsSearched(true);
+                window.reload();
+            } else if(searchParams.get('experience')){
+                const target = searchParams.get('experience');
+                const filtered = data.filter(doctor => doctor.experience >= target);
+                setFilteredDoctors(filtered);
+                setIsSearched(true);
+                window.reload();
+            } else if(searchParams.get('rating')){
+                alert(searchParams.get('rating'));
+                const target = searchParams.get('rating').length;
+                const filtered = data.filter(doctor => alert(doctor.rating.length) );
+                setFilteredDoctors(filtered);
+                setIsSearched(true);
+                window.reload();
+
+            }else {
                 setFilteredDoctors([]);
                 setIsSearched(false);
             }
