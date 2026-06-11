@@ -1,3 +1,32 @@
 center{
-    margin-top: 6rem;
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+    border: 1px solid white;
+}
+
+.search-box{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.input-results{
+    background: white;
+    margin: 10px;
+}
+
+.catLogo{
+    width: 20px;
+    height: 20px;
+}
+
+.input-result-item{
+    font-size: 1.3rem;
+    display: flex;
+    gap: 2rem;
+    border: 1px solid black;
+    padding:10px
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './FindDoctorSearch.css'
 import {useNavigate} from 'react-router-dom';
+import categoryLogo from '../../assets/category-svgrepo-com.svg'
 
 const initSpeciality = [
     'Dentist', 'Gynecologist/obstetrician', 'General Physician', 'Dermatologist', 'Ear-nose-throat (ent) Specialist', 'Homeopath', 'Ayurveda'
@@ -25,8 +26,8 @@ const FindDoctorSearch = () => {
     const navigate = useNavigate();
 
     const handleDoctorSelect = (category) => {
-        
     }
+
     const handleCategorySelect = (category) => {
         category = category.toLowerCase();
         alert(category + ' chosen');
@@ -106,6 +107,7 @@ const FindDoctorSearch = () => {
             doctorSearch.step = 1;
             doctorSearch.min = 1;
             doctorSearch.max = 30;
+            doctorSearch.value = 1;
 
             const numberSearchButton = document.createElement('button');
             numberSearchButton.textContent = 'Search';
@@ -172,12 +174,12 @@ const FindDoctorSearch = () => {
             <center>
                 <div className="search-container">
                     <div className="search-box">
-                        <input type="search" name="search-bar" id="search-bar" onFocus={() => setDoctorResultHidden(false)} onBlur={() => setDoctorResultHidden(true)} value={searchDoctor} onChange={(e) => setSearchDoctor(e.target.value)} placeholder="..." />
+                        <input type="search" name="search-bar" id="search-bar" onFocus={() => setDoctorResultHidden(false)} onBlur={() => setDoctorResultHidden(true)} value={searchDoctor} onChange={(e) => setSearchDoctor(e.target.value)} placeholder="Select a category" />
                         <div className="input-results" hidden={doctorResultHidden}>
                             {
                                 categories.map(category => 
                                     <div className="input-result-item" key={category} onMouseDown={() =>handleCategorySelect(category)} >
-                                        <span>Icon</span>
+                                        <span><img src={categoryLogo} className="catLogo" alt="Logo"/></span>
                                         <span>{category}</span>
                                         <span>CATEGORY</span>
                                     </div>
