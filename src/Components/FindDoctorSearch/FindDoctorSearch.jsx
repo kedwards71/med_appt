@@ -31,7 +31,9 @@ const FindDoctorSearch = () => {
             ele.removeChild(ele.firstChild);
         }
     }
-    const handleDoctorSelect = (category) => {
+    const handleDoctorSelect = (category,catValue) => {
+        navigate(`/instant-consultation?${category}=${catValue}`);
+        window.location.reload();
     }
 
     const handleCategorySelect = (category) => {
@@ -53,6 +55,7 @@ const FindDoctorSearch = () => {
                 removeEle(nameSearchContainer);
                 alert(`Looking for doctors with '${doctorSearch.value}' in their name`)
                 searchBar.hidden = false;
+                handleDoctorSelect(category,doctorSearch.value);
             };
             nameSearchContainer.appendChild(doctorSearch);
             nameSearchContainer.appendChild(nameSearchButton);
@@ -88,6 +91,7 @@ const FindDoctorSearch = () => {
                     removeEle(ratingSearchContainer);
                     alert(`Looking for doctors with at least ${rating.length} stars`);
                     searchBar.hidden = false;
+                    handleDoctorSelect(category,rating.length);
                 } 
                 const span = document.createElement('span');
                 span.textContent = rating;
@@ -118,6 +122,7 @@ const FindDoctorSearch = () => {
                 removeEle(experienceSearchContainer);
                 searchBar.hidden = false;
                 alert(`Looking for doctors with atleast ${doctorSearch.value} years of experience`);
+                handleDoctorSelect(category,doctorSearch.value);
             }
 
             experienceSearchContainer.appendChild(doctorSearch);
@@ -153,6 +158,7 @@ const FindDoctorSearch = () => {
                     removeEle(specialitySearchContainer);
                     alert(`Looking for doctors that are ${speciality}`);
                     searchBar.hidden=false
+                    handleDoctorSelect(category,speciality);
                 } 
                 const span = document.createElement('span');
                 span.textContent = speciality;
