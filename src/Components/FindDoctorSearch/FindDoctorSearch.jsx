@@ -50,7 +50,7 @@ const FindDoctorSearch = () => {
             nameSearchContainer.appendChild(doctorSearch);
             nameSearchContainer.appendChild(nameSearchButton);
             
-            const container = document.querySelector('.search-container');
+            const container = document.querySelector('.search-box');
             container.appendChild(nameSearchContainer);
         } else if (category === 'ratings') {
             const ratingSearchContainer = document.createElement('div');
@@ -93,7 +93,7 @@ const FindDoctorSearch = () => {
             ratingSearchContainer.appendChild(doctorSearch);
             ratingSearchContainer.appendChild(doctorSearchInputResults);
 
-            const container = document.querySelector('.search-container');
+            const container = document.querySelector('.search-box');
             container.appendChild(ratingSearchContainer);
 
         } else if (category === 'experience') {
@@ -119,7 +119,7 @@ const FindDoctorSearch = () => {
             experienceSearchContainer.appendChild(doctorSearch);
             experienceSearchContainer.appendChild(numberSearchButton);
 
-            const container = document.querySelector('.search-container')
+            const container = document.querySelector('.search-box')
             container.append(experienceSearchContainer);
 
         } else if (category === 'speciality') {
@@ -161,7 +161,7 @@ const FindDoctorSearch = () => {
             specialitySearchContainer.appendChild(doctorSearch);
             specialitySearchContainer.appendChild(doctorSearchInputResults);
 
-            const container = document.querySelector('.search-container');
+            const container = document.querySelector('.search-box');
             container.appendChild(specialitySearchContainer);
         }
     }
