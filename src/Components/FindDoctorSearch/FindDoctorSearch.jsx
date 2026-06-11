@@ -40,7 +40,13 @@ const FindDoctorSearch = () => {
 
             const nameSearchButton = document.createElement('button');
             nameSearchButton.textContent = 'Search'
-            nameSearchButton.onclick= () => alert(doctorSearch.value);
+            nameSearchButton.onclick= () => {
+                    while(nameSearchContainer.firstChild)
+                    {
+                        nameSearchContainer.removeChild(nameSearchContainer.firstChild);
+                    }
+                alert(`Looking for doctors with '${doctorSearch.value}' in their name`)
+            };
             nameSearchContainer.appendChild(doctorSearch);
             nameSearchContainer.appendChild(nameSearchButton);
             
@@ -63,13 +69,22 @@ const FindDoctorSearch = () => {
             doctorSearch.onblur =() => {
                 document.querySelector('#doctorSearchInputResults').hidden = true;
             };
-            doctorSearch.onchange = (e) => alert(e.target.value);
+            doctorSearch.onchange = (e) =>{
+                alert(e.target.value);
+            } 
             
             for (let rating of ratings)
             {
                 const doctorSearchResultItem = document.createElement('div');
                 doctorSearchResultItem.id='doctorSearchResultItem';
-                doctorSearchResultItem.onmousedown=() => alert(`Looking for doctors with at least ${rating.length} stars`);
+                doctorSearchResultItem.onmousedown=() =>{
+                    while(ratingSearchContainer.firstChild)
+                    {
+                        ratingSearchContainer.removeChild(ratingSearchContainer.firstChild);
+                    }
+
+                    alert(`Looking for doctors with at least ${rating.length} stars`);
+                } 
                 const span = document.createElement('span');
                 span.textContent = rating;
                 doctorSearchResultItem.appendChild(span);
