@@ -2,7 +2,7 @@
     max-width: 1200px;
     margin: auto;
     margin-top:10%;
-    color: #414146;
+    color: #fbfbff;
     padding: 0 20px;
     position: static;
     width: 100%;
@@ -49,7 +49,7 @@
 
 .search-results-container>h3 {
     margin-top: 12px;
-    color: #2d2d32;
+    color: #ffffff;
     text-align: left;
     font-size: 15px;
 }
