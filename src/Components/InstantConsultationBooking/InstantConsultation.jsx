@@ -37,10 +37,9 @@ const InstantConsultation = () => {
                 setFilteredDoctors(filtered);
                 setIsSearched(true);
                 window.reload();
-            } else if(searchParams.get('rating')){
-                alert(searchParams.get('rating'));
-                const target = searchParams.get('rating').length;
-                const filtered = data.filter(doctor => alert(doctor.rating.length) );
+            } else if(searchParams.get('ratings')){
+                const target = searchParams.get('ratings').length;
+                const filtered = data.filter(doctor => doctor.ratings.length >= target );
                 setFilteredDoctors(filtered);
                 setIsSearched(true);
                 window.reload();
