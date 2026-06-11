@@ -59,7 +59,7 @@ const InstantConsultation = () => {
     }, [searchParams])
 
     return (
-        <center>
+        <center className='layeredBg'>
             <div  className="searchpage-container">
             <FindDoctorSearchIC onSearch={handleSearch} />
             <div className="search-results-container">
@@ -79,6 +79,7 @@ const InstantConsultation = () => {
             </div>
         </div>
         </center>
+
     )
 }
 
