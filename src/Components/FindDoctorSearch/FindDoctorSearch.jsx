@@ -64,7 +64,7 @@ const FindDoctorSearch = () => {
             doctorSearchInputResults.id='doctorSearchInputResults';
             doctorSearchInputResults.hidden = true;
             doctorSearch.onfocus =() => {
-                document.querySelector('#doctorSearchInputResults').hidden = false;
+                document.querySelector('#doctorSearchInputResults').hidden = false; 
             };
             doctorSearch.onblur =() => {
                 document.querySelector('#doctorSearchInputResults').hidden = true;
@@ -99,7 +99,46 @@ const FindDoctorSearch = () => {
         } else if (category === 'experience') {
 
         } else if (category === 'speciality') {
+            const specialitySearchContainer = document.createElement('div');
+            specialitySearchContainer.id = 'specialitySearchContainer';
 
+            const doctorSearch = document.createElement('input');
+            doctorSearch.id = 'specialityDoctorSearch';
+            doctorSearch.placeholder = 'Search by speciality';
+
+            const doctorSearchInputResults = document.createElement('div');
+            doctorSearchInputResults.id = 'doctorSearchInputResults';
+            doctorSearchInputResults.hidden = true;
+            doctorSearch.onfocus = () => {
+                document.querySelector('#doctorSearchInputResults').hidden = false;
+            };
+            doctorSearch.onblur = () => {
+                document.querySelector('#doctorSearchInputResults').hidden = true;
+            };
+            doctorSearch.onchange = (e) => {
+                alert(e.target.value);
+            }
+            for (let speciality of specialities){
+                const doctorSearchResultItem = document.createElement('div');
+                doctorSearchResultItem.id = 'doctorSearchResultItem';
+                doctorSearchResultItem.onmousedown = () => {
+                    while(specialitySearchContainer.firstChild)
+                    {
+                        specialitySearchContainer.removeChild(specialitySearchContainer.firstChild);
+                    }
+
+                    alert(`Looking for doctors that are ${speciality}`);
+                } 
+                const span = document.createElement('span');
+                span.textContent = speciality;
+                doctorSearchResultItem.appendChild(span);
+                doctorSearchInputResults.appendChild(doctorSearchResultItem);
+            }
+            specialitySearchContainer.appendChild(doctorSearch);
+            specialitySearchContainer.appendChild(doctorSearchInputResults);
+
+            const container = document.querySelector('.search-container');
+            container.appendChild(specialitySearchContainer);
         }
     }
 
