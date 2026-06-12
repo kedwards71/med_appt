@@ -40,7 +40,6 @@ const FindDoctorSearch = () => {
         const searchBar = document.querySelector("#search-bar");
         searchBar.hidden = true;
         category = category.toLowerCase();
-        alert(category + ' chosen');
         if(category === 'name' ){
             const nameSearchContainer = document.createElement('div');
             nameSearchContainer.id = 'catSearchContainer';
@@ -53,7 +52,6 @@ const FindDoctorSearch = () => {
             nameSearchButton.textContent = 'Search'
             nameSearchButton.onclick= () => {
                 removeEle(nameSearchContainer);
-                alert(`Looking for doctors with '${doctorSearch.value}' in their name`)
                 searchBar.hidden = false;
                 handleDoctorSelect(category,doctorSearch.value);
             };
@@ -89,7 +87,6 @@ const FindDoctorSearch = () => {
                 doctorSearchResultItem.id='catSearchResultItem';
                 doctorSearchResultItem.onmousedown=() =>{
                     removeEle(ratingSearchContainer);
-                    alert(`Looking for doctors with at least ${rating.length} stars`);
                     searchBar.hidden = false;
                     handleDoctorSelect(category,rating.length);
                 } 
@@ -121,7 +118,6 @@ const FindDoctorSearch = () => {
             numberSearchButton.onclick = () => {
                 removeEle(experienceSearchContainer);
                 searchBar.hidden = false;
-                alert(`Looking for doctors with atleast ${doctorSearch.value} years of experience`);
                 handleDoctorSelect(category,doctorSearch.value);
             }
 
@@ -156,7 +152,6 @@ const FindDoctorSearch = () => {
                 doctorSearchResultItem.id = 'catSearchResultItem';
                 doctorSearchResultItem.onmousedown = () => {
                     removeEle(specialitySearchContainer);
-                    alert(`Looking for doctors that are ${speciality}`);
                     searchBar.hidden=false
                     handleDoctorSelect(category,speciality);
                 } 
