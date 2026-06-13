@@ -43,11 +43,11 @@ const DoctorCard = ({name,speciality, experience, ratings, profilePic}) =>{
                         <div className="doctor-card-detail-experience">{experience} years experience</div>
                         <div className="doctor-card-detail-consultationfees">Ratings: {ratings}</div>
                     </div>
-                    {/* <div>
-                        <button className='btn btn-primary'>
+                    <div>
+                        {/* <button onClick={handleBooking} className='btn btn-primary'>
                             <div>Book Appointment</div>
-                        </button>
-                    </div> */}
+                        </button> */}
+                    </div>
                 </div>
 
                 <div className="doctor-card-options-container">

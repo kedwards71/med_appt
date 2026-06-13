@@ -11,28 +11,34 @@ const Notification = ({ children }) => {
   const [appointmentData, setAppointmentData] = useState(null);
 
   // useEffect hook to perform side effects in the component
+  if(localStorage.getItem('doctorData')!=null && sessionStorage.getItem('email')!=null)
+  {
+    alert('in');
   useEffect(() => {
-    // Retrieve stored username, doctor data, and appointment data from sessionStorage and localStorage
-    const storedUsername = sessionStorage.getItem('email');
-    const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
-    const storedAppointmentData = JSON.parse(localStorage.getItem(storedDoctorData?.name));
+        // Retrieve stored username, doctor data, and appointment data from sessionStorage and localStorage
+        const storedUsername = sessionStorage.getItem('email');
+        const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
+        const storedAppointmentData = JSON.parse(localStorage.getItem(storedDoctorData?.appointmentDetails));
 
-    // Set isLoggedIn state to true and update username if storedUsername exists
-    if (storedUsername) {
-      setIsLoggedIn(true);
-      setUsername(storedUsername);
-    }
+        // Set isLoggedIn state to true and update username if storedUsername exists
+        if (storedUsername) {
+        setIsLoggedIn(true);
+        setUsername(storedUsername);
+        }
 
-    // Set doctorData state if storedDoctorData exists
-    if (storedDoctorData) {
-      setDoctorData(storedDoctorData);
-    }
+        // Set doctorData state if storedDoctorData exists
+        if (storedDoctorData) {
+        setDoctorData(storedDoctorData);
+        }
 
-    // Set appointmentData state if storedAppointmentData exists
-    if (storedAppointmentData) {
-      setAppointmentData(storedAppointmentData);
+        // Set appointmentData state if storedAppointmentData exists
+        if (storedAppointmentData) {
+        setAppointmentData(storedAppointmentData);
+        }
+    }, []); // Empty dependency array ensures useEffect runs only once after initial render
     }
-  }, []); // Empty dependency array ensures useEffect runs only once after initial render
+    alert(isLoggedIn +'+'+appointmentData);
+
 
   // Return JSX elements to display Navbar, children components, and appointment details if user is logged in
   return (
