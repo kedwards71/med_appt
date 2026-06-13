@@ -6,6 +6,8 @@ import Sign_Up from "./Components/Sign_Up/Sign_Up"
 import Login from "./Components/Login/Login"
 import InstantConsultation from "./Components/InstantConsultationBooking/InstantConsultation.jsx"
 import DoctorCard from "./Components/DoctorCard/DoctorCard.jsx"
+import AppointmentForm from "./Components/AppointmentForm/AppointmentForm.jsx"
+import DoctorCardIC from "./Components/InstantConsultationBooking/DoctorCardIC/DoctorCardIC.jsx"
 
 function App() {
 
@@ -20,7 +22,8 @@ function App() {
               <Route path='/Sign_Up' element={<Sign_Up/>}/>
               <Route path='/Login' element={<Login/>}/>
               <Route path='/instant-consultation' element={<InstantConsultation/>}/>
-              <Route path="/DoctorCard" element={<DoctorCard/>}/>
+              <Route path="/DoctorCardIC" element={<DoctorCardIC/>}/>
+              <Route path='/AppointmentForm' element={<AppointmentForm/>}/>
           </Routes>
         </BrowserRouter>
       </div>
