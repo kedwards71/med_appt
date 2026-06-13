@@ -9,18 +9,14 @@ const AppointmentForm = ({doctorName, doctorSpeciality, onSubmit}) => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
        onSubmit({name, phoneNumber, date, selectedSlot});
-        localStorage.setItem('doctorData',JSON.stringify({
-            name:`${doctorName}`,
-            speciality:`${doctorSpeciality}`,
-            appointmentDetails: {
-                name:`${name}`,
-                phoneNumber:`${phoneNumber}`,
-                date:`${date}`,
-                slot:`${selectedSlot}`
-            }
-    }));
-        const stored = JSON.parse(localStorage.getItem('doctorData'))
-        alert(stored?.appointmentDetails)
+        localStorage.setItem('doctorData',JSON.stringify({name:`${doctorName}`, speciality:`${doctorSpeciality}`}));
+        const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
+        localStorage.setItem(storedDoctorData?.name,JSON.stringify({
+            name:`${name}`,
+            phoneNumber:`${phoneNumber}`,
+            date:`${date}`,
+            slot:`${selectedSlot}`
+        }))
         setName('');
         setPhoneNumber('');
         setDate('');

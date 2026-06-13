@@ -1,0 +1,19 @@
+.appointment-card{
+    color: black;
+    margin-top: 6rem;
+    padding: 30px;
+    justify-self: center;
+    text-align: left;
+    background: rgba(125,216,255,.15);
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.30);
+    box-shadow: -10px 10px 20px rgba(0,0,0,0.3);
+    width: 400px;
+    color: white;
+}
+
+.appointment-card h3{
+    text-align: center;
+}

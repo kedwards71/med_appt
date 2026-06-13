@@ -1,5 +1,6 @@
 // Following code has been commented with appropriate comments for your reference.
 import React, { useEffect, useState } from 'react';
+import './Notification.css'
 import Navbar from '../Navbar/Navbar';
 
 // Function component Notification to display user notifications
@@ -13,13 +14,11 @@ const Notification = ({ children }) => {
   // useEffect hook to perform side effects in the component
   if(localStorage.getItem('doctorData')!=null && sessionStorage.getItem('email')!=null)
   {
-    alert('in');
-  useEffect(() => {
+    useEffect(() => {
         // Retrieve stored username, doctor data, and appointment data from sessionStorage and localStorage
         const storedUsername = sessionStorage.getItem('email');
         const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
-        const storedAppointmentData = JSON.parse(localStorage.getItem(storedDoctorData?.appointmentDetails));
-
+        const storedAppointmentData = JSON.parse(localStorage.getItem(storedDoctorData?.name));
         // Set isLoggedIn state to true and update username if storedUsername exists
         if (storedUsername) {
         setIsLoggedIn(true);
@@ -36,27 +35,33 @@ const Notification = ({ children }) => {
         setAppointmentData(storedAppointmentData);
         }
     }, []); // Empty dependency array ensures useEffect runs only once after initial render
-    }
-    alert(isLoggedIn +'+'+appointmentData);
+
+
+}
 
 
   // Return JSX elements to display Navbar, children components, and appointment details if user is logged in
   return (
     <div>
       {/* Render Navbar component */}
-      <Navbar ></Navbar>
+      <Navbar></Navbar>
       {/* Render children components */}
       {children}
       {/* Display appointment details if user is logged in and appointmentData is available */}
       {isLoggedIn && appointmentData && (
         <>
-          <div className="appointment-card">
+          <div className="appointment-card" hidden={false}>
             <div className="appointment-card__content">
               {/* Display title for appointment details */}
               <h3 className="appointment-card__title">Appointment Details</h3>
               <p className="appointment-card__message">
                 {/* Display doctor's name from doctorData */}
-                <strong>Doctor:</strong> {doctorData?.name}
+                <strong>Doctor:</strong> {doctorData?.name} <br/>
+                <strong>Speciality:</strong> {doctorData?.speciality} <br/>
+                <strong>Patient Name:</strong> {appointmentData?.name} <br/>
+                <strong>Phone Number:</strong> {appointmentData?.phoneNumber} <br/>
+                <strong>Date of Appointment:</strong> {appointmentData?.date} <br/>
+                <strong>Time Slot:</strong> {appointmentData.slot} <br/>
               </p>
             </div>
           </div>
