@@ -14,7 +14,6 @@ const Sign_Up = () =>{
     const [password, setPassword] = useState('');
     const [showerr, setShowerr] = useState(''); 
     const navigate = useNavigate();
-    console.log(sessionStorage.getItem("email"))
 
     const register = async (e) =>{
         e.preventDefault();

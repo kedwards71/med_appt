@@ -8,6 +8,7 @@ import InstantConsultation from "./Components/InstantConsultationBooking/Instant
 import DoctorCard from "./Components/DoctorCard/DoctorCard.jsx"
 import AppointmentForm from "./Components/AppointmentForm/AppointmentForm.jsx"
 import DoctorCardIC from "./Components/InstantConsultationBooking/DoctorCardIC/DoctorCardIC.jsx"
+import BookingConsultation from "./Components/BookingConsultation.jsx"
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
               <Route path='/instant-consultation' element={<InstantConsultation/>}/>
               <Route path="/DoctorCardIC" element={<DoctorCardIC/>}/>
               <Route path='/AppointmentForm' element={<AppointmentForm/>}/>
+              <Route path='/BookingConsultation' element={<BookingConsultation/>}/>
           </Routes>
         </BrowserRouter>
       </div>
