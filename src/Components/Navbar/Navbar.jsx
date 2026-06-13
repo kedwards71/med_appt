@@ -14,9 +14,9 @@ const Navbar = () => {
             name =(email.slice(0,index));
         }
     function handleLogout(){
-        alert("")
         sessionStorage.setItem("email","");
         setEmail(sessionStorage.getItem('email'));
+        sessionStorage.removeItem('auth-token');
     }
     function handleClick(){
         const navbarItems = document.querySelector(".navbarItems");
@@ -35,6 +35,8 @@ const Navbar = () => {
 
     function toggleNotification(){
         const noti = document.querySelector('.appointment-card');
+        if(!noti)
+            alert('You need to make sure you are logged in and have booked an appointment.')
         noti.hidden = noti.hidden ? false : true;
         const bellIcons = document.querySelector('.bell_icon i');
         if(noti.hidden){
