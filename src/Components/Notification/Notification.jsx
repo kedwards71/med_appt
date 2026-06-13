@@ -45,12 +45,10 @@ const Notification = ({ children }) => {
     <div style={{position:'absolute', width:'100%', height: '100%'}}>
       {/* Render Navbar component */}
       <Navbar></Navbar>
-      {/* Render children components */}
-      {children}
       {/* Display appointment details if user is logged in and appointmentData is available */}
       {isLoggedIn && appointmentData && (
-        <>
-          <div className="appointment-card">
+          <>
+          <div className="appointment-card" hidden={true}>
             <div className="appointment-card__content">
               {/* Display title for appointment details */}
               <h3 className="appointment-card__title">Appointment Details</h3>
@@ -67,6 +65,8 @@ const Notification = ({ children }) => {
           </div>
         </>
       )}
+      {/* Render children components */}
+      {children}
     </div>
   );
 };

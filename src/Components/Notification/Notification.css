@@ -1,11 +1,11 @@
 .appointment-card{
-    position: absolute;
     color: black;
-    margin-top: 6rem;
+    margin-top: 10rem;
     padding: 30px;
     justify-self: center;
     text-align: left;
     background: rgba(0,0,0,.15);
+    z-index: 999;
 
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(10px);

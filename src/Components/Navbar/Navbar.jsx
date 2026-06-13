@@ -32,6 +32,11 @@ const Navbar = () => {
             navIcon.classList.add("fa-bars");
         }
     }
+
+    function toggleNotification(){
+        const noti = document.querySelector('.appointment-card');
+        noti.hidden = noti.hidden ? false : true;
+    }
     
   return (
     <>
@@ -48,6 +53,10 @@ const Navbar = () => {
                 {/* <!-- Hamburger Menu w/ onClick event listener --> */}
                  <div className="nav__icon" onClick={handleClick}>
                     <i className="fa fa-times fa fa-bars"></i>
+                 </div>
+
+                 <div>
+                    <button onClick={toggleNotification}>Toggle</button>
                  </div>
 
 
