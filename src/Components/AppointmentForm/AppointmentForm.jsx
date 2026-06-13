@@ -46,12 +46,12 @@ const AppointmentForm = ({doctorName, doctorSpeciality, onSubmit}) => {
             <div className="form-group">
                 <select name="" id="time-slots" value={selectedSlot} className="time-slots" onChange={(e) => handleSlotSelection(e.target.value)}>
                     <option value="">Select a time slot</option>
-                    <option value="8:00-9:00">8:00-9:00</option>
-                    <option value="9:00-10:00">9:00-10:00</option>
-                    <option value="10:00-11:00">10:00-11:00</option>
-                    <option value="11:00-12:00">11:00-12:00</option>
-                    <option value="12:00-1:00">12:00-1:00</option>
-                    <option value="1:00-2:00">1:00-2:00</option>
+                    <option value="8:00AM-9:00AM">8:00AM-9:00AM</option>
+                    <option value="9:00AM-10:00AM">9:00AM-10:00AM</option>
+                    <option value="10:00AM-11:00AM">10:00AM-11:00AM</option>
+                    <option value="11:00AM-12:00PM">11:00AM-12:00PM</option>
+                    <option value="12:00PM-1:00PM">12:00PM-1:00PM</option>
+                    <option value="1:00PM-2:00PM">1:00PM-2:00PM</option>
                 </select>
             </div>
             <button type="submit">Book Now</button>

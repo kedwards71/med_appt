@@ -18,7 +18,8 @@ body{
 } */
 /* Navigation Bar */
 .navbar{
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     background-color: rgba(114, 114, 114, 0.3);
     display: flex;
     justify-content: space-between;
@@ -147,6 +148,16 @@ body{
         animation: slideDown 0.5s ease-in-out;
     }
 
+}
+
+.notificationLog{
+    width: 20px;
+    height: 20px;
+    background-clip: none;
+}
+
+.notificationLog:hover{
+    cursor: pointer;
 }
 
 /* Keyframs for slideDown */

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './DoctorCard.css';
@@ -8,14 +8,24 @@ import AppointmentForm from '../AppointmentForm/AppointmentForm';
 const DoctorCard = ({name,speciality, experience, ratings, profilePic}) =>{
     const [showModal, setShowModal] = useState(false);
     const [appointments, setAppointments] = useState([]);
-
+    const [changed,setChanged] = useState(false);
 
     const handleBooking = () => {
         setShowModal(true);
     };
+    useEffect(() => {
+        if(localStorage.getItem(`${localStorage.getItem('patientName')}+${name}+${speciality}`)){
+            const savedApt = localStorage.getItem(`${localStorage.getItem('patientName')}+${name}+${speciality}`);
+            const updatedAppointments = [...appointments, savedApt];
+            setAppointments(updatedAppointments);
+            setShowModal(false);
+        }
+    }, [])
 
-    const handleCancel = (appointmentId) => {
-        const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
+    const handleCancel = (appointmentData) => {
+        const updatedAppointments = appointments.filter((appointment) => appointment?.id !== appointmentData?.id);
+        const savedApt = `${localStorage.getItem('patientName')}+${name}+${speciality}`;
+        localStorage.removeItem(savedApt)
         setAppointments(updatedAppointments);
     };
 
@@ -24,6 +34,8 @@ const DoctorCard = ({name,speciality, experience, ratings, profilePic}) =>{
             id: uuidv4(),
             ...appointmentData,
         };
+        localStorage.setItem(`${appointmentData.name}+${name}+${speciality}`,newAppointment);
+        localStorage.setItem('patientName',appointmentData.name)
         const updatedAppointments = [...appointments, newAppointment];
         setAppointments(updatedAppointments);
         setShowModal(false);
@@ -87,7 +99,7 @@ const DoctorCard = ({name,speciality, experience, ratings, profilePic}) =>{
                                                 <div className="bookedInfo" key={appointment.id}>
                                                     <p>Name: {appointment.name}</p>
                                                     <p>Phone Number: {appointment.phoneNumber}</p>
-                                                    <button onClick={() => handleCancel(appointment.id)}>Cancel Appointment</button>
+                                                    <button onClick={() => handleCancel(appointment)}>Cancel Appointment</button>
                                                 </div>
                                             ))}
                                         </>

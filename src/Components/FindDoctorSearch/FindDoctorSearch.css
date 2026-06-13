@@ -2,6 +2,7 @@ centered{
     margin-top: 10rem;
     display: grid;
     justify-items: center;
+    width: 100%;
 }
 
 
