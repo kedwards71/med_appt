@@ -50,7 +50,7 @@ const Notification = ({ children }) => {
       {/* Display appointment details if user is logged in and appointmentData is available */}
       {isLoggedIn && appointmentData && (
         <>
-          <div className="appointment-card" hidden={false}>
+          <div className="appointment-card" hidden={true}>
             <div className="appointment-card__content">
               {/* Display title for appointment details */}
               <h3 className="appointment-card__title">Appointment Details</h3>

@@ -15,19 +15,20 @@ function App() {
     <>
       <div className="App">
         <BrowserRouter>
-        <Navbar/>
+            <Notification>
+
           {/* <Navbar/> */}
 
           {/* <LandingPage/> */}
-          <Routes>
-              <Route path='/' element={<LandingPage/>}/>
-              <Route path='/Sign_Up' element={<Sign_Up/>}/>
-              <Route path='/Login' element={<Login/>}/>
-              <Route path='/instant-consultation' element={<InstantConsultation/>}/>
-              <Route path='/AppointmentForm' element={<AppointmentForm/>}/>
-              <Route path='/BookingConsultation' element={<BookingConsultation/>}/>
-              <Route path='/Notification' element={<Notification/>}/>
-          </Routes>
+                <Routes>
+                    <Route path='/' element={<LandingPage/>}/>
+                    <Route path='/Sign_Up' element={<Sign_Up/>}/>
+                    <Route path='/Login' element={<Login/>}/>
+                    <Route path='/instant-consultation' element={<InstantConsultation/>}/>
+                    <Route path='/AppointmentForm' element={<AppointmentForm/>}/>
+                    <Route path='/BookingConsultation' element={<BookingConsultation/>}/>
+                </Routes>
+            </Notification>
         </BrowserRouter>
       </div>
     </>

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './Navbar.css'
 import medicalTeam from '../../assets/medical-team.png'
+import notificationLogo from '../../assets/notifcation-bell-on-svgrepo-con.svg';
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
@@ -56,6 +57,7 @@ const Navbar = () => {
                     {email && email.trim() !== '' ? 
                         <>
                             <li className="link" style={{display:"flex",gap:"10px", alignItems:"baseline"}}>                            <p className='welcome-user'>Hello,<strong>{name}</strong></p> <button className='btn btn-danger mb-2 waves-effect waves-light' onClick={handleLogout}>Logout</button></li>
+                            <img src={notificationLogo} alt="" className="notifcationLog" />
 
                         </>
 
