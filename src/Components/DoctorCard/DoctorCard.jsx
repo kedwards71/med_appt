@@ -8,7 +8,6 @@ import AppointmentForm from '../AppointmentForm/AppointmentForm';
 const DoctorCard = ({name,speciality, experience, ratings, profilePic}) =>{
     const [showModal, setShowModal] = useState(false);
     const [appointments, setAppointments] = useState([]);
-    const [changed,setChanged] = useState(false);
 
     const handleBooking = () => {
         setShowModal(true);
@@ -25,8 +24,9 @@ const DoctorCard = ({name,speciality, experience, ratings, profilePic}) =>{
     const handleCancel = (appointmentData) => {
         const updatedAppointments = appointments.filter((appointment) => appointment?.id !== appointmentData?.id);
         const savedApt = `${localStorage.getItem('patientName')}+${name}+${speciality}`;
-        localStorage.removeItem(savedApt)
+        localStorage.removeItem(savedApt);
         setAppointments(updatedAppointments);
+        localStorage.removeItem('doctorData');
     };
 
     const handleFormSubmit = (appointmentData) => {
