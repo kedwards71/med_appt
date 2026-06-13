@@ -115,8 +115,15 @@ body{
     cursor: pointer;
 }
 
+.bell_icon{
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+
+}
+
 /* Mobile Responsiveness */
-@media (max-width: 1158px){
+@media (max-width: 1395px){
     .nav__logo{
         margin-right: auto;
     }
@@ -124,6 +131,11 @@ body{
     .nav__icon{
         display: block;
         padding-right: 1rem;
+    }
+    .bell_icon{
+        display: block;
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
     .navbarItems{
         display: none;

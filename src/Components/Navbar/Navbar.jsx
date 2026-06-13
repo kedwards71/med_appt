@@ -36,6 +36,17 @@ const Navbar = () => {
     function toggleNotification(){
         const noti = document.querySelector('.appointment-card');
         noti.hidden = noti.hidden ? false : true;
+        const bellIcons = document.querySelector('.bell_icon i');
+        if(noti.hidden){
+            bellIcons.classList.remove('fa-bell');
+            bellIcons.classList.add('fa-bell-slash');
+        }
+        else{
+            bellIcons.classList.remove('fa-bell-slash');
+            bellIcons.classList.add('fa-bell');
+        }
+
+
     }
     
   return (
@@ -55,8 +66,8 @@ const Navbar = () => {
                     <i className="fa fa-times fa fa-bars"></i>
                  </div>
 
-                 <div>
-                    <button onClick={toggleNotification}>Toggle</button>
+                 <div className='bell_icon' onClick={toggleNotification}>
+                    <i className='fa fa-bell-slash '></i>
                  </div>
 
 
