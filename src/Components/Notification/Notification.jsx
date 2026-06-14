@@ -36,24 +36,25 @@ const Notification = ({ children }) => {
             setAppointmentData(storedAppointmentData);
             let data = appList;
             console.log('JSON')
-            console.log(localStorage.getItem('email'));
-            if(localStorage.getItem('email') && localStorage.getItem('email')!=='undefined' && JSON.parse(localStorage.getItem('email')).length > 0)
+            console.log(localStorage.getItem(sessionStorage.getItem('email')));
+            if(localStorage.getItem(sessionStorage.getItem('email')) && localStorage.getItem(sessionStorage.getItem('email'))!=='undefined' && JSON.parse(localStorage.getItem(sessionStorage.getItem('email'))).length > 0)
             {
                 console.log('Data is being updataed');
-                data = [...data,...JSON.parse(localStorage.getItem('email'))]
+                data = [...data,...JSON.parse(localStorage.getItem(sessionStorage.getItem('email')))]
             }
             const newEntry = {patient:storedAppointmentData,...storedDoctorData}
+            data = data.filter((d) => d.name !== newEntry.name)
             const updateList = [...data,newEntry];
             console.log('Data')
             console.log(data);
             console.log('Update')
             console.log(updateList);
             setAppList(updateList);
-            localStorage.setItem('email',JSON.stringify(updateList));
+            localStorage.setItem(sessionStorage.getItem('email'),JSON.stringify(updateList));
             console.log('Final Local Storage');
-            console.log(JSON.parse(localStorage.getItem('email')));
+            console.log(JSON.parse(localStorage.getItem(sessionStorage.getItem('email'))));
             console.log(appList);
-            localStorage.removeItem('email')
+            // localStorage.removeItem(sessionStorage.getItem('email'))
         }
     }
     }, []); // Empty dependency array ensures useEffect runs only once after initial render
@@ -66,9 +67,9 @@ const Notification = ({ children }) => {
       {/* Render Navbar component */}
       <Navbar></Navbar>
       {/* Display appointment details if user is logged in and appointmentData is available */}
+            <div className='card-separator'>
       {isLoggedIn && appointmentData && appList &&(
         appList.map((app)=>(
-            <div className='card-separator'>
             <div className="appointment-card" hidden={false}>
               <div className="appointment-card__content">
                 {/* Display title for appointment details */}
@@ -84,26 +85,26 @@ const Notification = ({ children }) => {
                 </p>
               </div>
             </div>
-          </div>
         ))
-        //   <div className='card-separator'>
+    )}
+          </div>
+        {/* //   <div className='card-separator'>
         //   <div className="appointment-card" hidden={false}>
-        //     <div className="appointment-card__content">
-        //       {/* Display title for appointment details */}
-        //       <h3 className="appointment-card__title">Appointment Details</h3>
-        //       <p className="appointment-card__message">
-        //         {/* Display doctor's name from doctorData */}
-        //         <strong>Doctor:</strong> {doctorData?.name} <br/>
-        //         <strong>Speciality:</strong> {doctorData?.speciality} <br/>
-        //         <strong>Patient Name:</strong> {appointmentData?.name} <br/>
-        //         <strong>Phone Number:</strong> {appointmentData?.phoneNumber} <br/>
-        //         <strong>Date of Appointment:</strong> {appointmentData?.date} <br/>
-        //         <strong>Time Slot:</strong> {appointmentData.slot} <br/>
-        //       </p>
-        //     </div>
-        //   </div>
-        // </div>
-      )}
+        //     <div className="appointment-card__content"> */}
+              {/* Display title for appointment details */}
+              {/* <h3 className="appointment-card__title">Appointment Details</h3>
+              <p className="appointment-card__message"> */}
+                {/* Display doctor's name from doctorData */}
+                {/* <strong>Doctor:</strong> {doctorData?.name} <br/>
+                <strong>Speciality:</strong> {doctorData?.speciality} <br/>
+                <strong>Patient Name:</strong> {appointmentData?.name} <br/>
+                <strong>Phone Number:</strong> {appointmentData?.phoneNumber} <br/>
+                <strong>Date of Appointment:</strong> {appointmentData?.date} <br/>
+                <strong>Time Slot:</strong> {appointmentData.slot} <br/>
+              </p>
+            </div>
+          </div>
+        </div> */}
       {/* Render children components */}
       {children}
     </div>

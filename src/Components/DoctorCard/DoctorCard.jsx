@@ -22,8 +22,20 @@ const DoctorCard = ({name,speciality, experience, ratings, profilePic}) =>{
     }, [])
 
     const handleCancel = (appointmentData) => {
+        console.log("In cancelation");
         const updatedAppointments = appointments.filter((appointment) => appointment?.id !== appointmentData?.id);
         const savedApt = `${localStorage.getItem('patientName')}+${name}+${speciality}`;
+        console.log(localStorage.getItem(sessionStorage.getItem('email')));
+        if(localStorage.getItem(sessionStorage.getItem('email')))
+        {
+
+            console.log('Checking array')
+            const appList = JSON.parse(localStorage.getItem(sessionStorage.getItem('email')));
+            const filteredApp = appList.filter((app) => app.name != name);
+            console.log(filteredApp);
+            localStorage.setItem(sessionStorage.getItem('email'),JSON.stringify(filteredApp));
+        }
+            
         localStorage.removeItem(savedApt);
         setAppointments(updatedAppointments);
         localStorage.removeItem('doctorData');

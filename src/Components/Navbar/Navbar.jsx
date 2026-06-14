@@ -38,6 +38,7 @@ const Navbar = () => {
         if(!noti)
             alert('You need to make sure you are logged in and have booked an appointment.')
         noti.hidden = noti.hidden ? false : true;
+        
         const bellIcons = document.querySelector('.bell_icon i');
         if(noti.hidden){
             bellIcons.classList.remove('fa-bell');
