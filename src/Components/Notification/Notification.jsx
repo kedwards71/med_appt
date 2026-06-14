@@ -70,7 +70,7 @@ const Notification = ({ children }) => {
             <div className='card-separator'>
       {isLoggedIn && appointmentData && appList &&(
         appList.map((app)=>(
-            <div className="appointment-card" hidden={false}>
+            <div className="appointment-card" hidden={true}>
               <div className="appointment-card__content">
                 {/* Display title for appointment details */}
                 <h3 className="appointment-card__title">Appointment Details</h3>

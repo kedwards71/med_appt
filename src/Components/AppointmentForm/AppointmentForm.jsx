@@ -21,6 +21,7 @@ const AppointmentForm = ({doctorName, doctorSpeciality, onSubmit}) => {
         setPhoneNumber('');
         setDate('');
         setSelectedSlot('');
+        window.location.reload();
     }
 
     const handleSlotSelection = (slot) => {

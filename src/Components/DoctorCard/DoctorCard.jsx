@@ -13,8 +13,9 @@ const DoctorCard = ({name,speciality, experience, ratings, profilePic}) =>{
         setShowModal(true);
     };
     useEffect(() => {
-        if(localStorage.getItem(`${localStorage.getItem('patientName')}+${name}+${speciality}`)){
-            const savedApt = localStorage.getItem(`${localStorage.getItem('patientName')}+${name}+${speciality}`);
+        console.log(localStorage.getItem(`${name}+${speciality}`))
+        if(localStorage.getItem(`${name}+${speciality}`)){
+            const savedApt = localStorage.getItem(`${name}+${speciality}`);
             const updatedAppointments = [...appointments, savedApt];
             setAppointments(updatedAppointments);
             setShowModal(false);
@@ -24,7 +25,7 @@ const DoctorCard = ({name,speciality, experience, ratings, profilePic}) =>{
     const handleCancel = (appointmentData) => {
         console.log("In cancelation");
         const updatedAppointments = appointments.filter((appointment) => appointment?.id !== appointmentData?.id);
-        const savedApt = `${localStorage.getItem('patientName')}+${name}+${speciality}`;
+        const savedApt = `${name}+${speciality}`;
         console.log(localStorage.getItem(sessionStorage.getItem('email')));
         if(localStorage.getItem(sessionStorage.getItem('email')))
         {
@@ -46,8 +47,7 @@ const DoctorCard = ({name,speciality, experience, ratings, profilePic}) =>{
             id: uuidv4(),
             ...appointmentData,
         };
-        localStorage.setItem(`${appointmentData.name}+${name}+${speciality}`,newAppointment);
-        localStorage.setItem('patientName',appointmentData.name)
+        localStorage.setItem(`${name}+${speciality}`,JSON.stringify(newAppointment));
         const updatedAppointments = [...appointments, newAppointment];
         setAppointments(updatedAppointments);
         setShowModal(false);

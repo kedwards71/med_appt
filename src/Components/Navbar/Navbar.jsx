@@ -34,13 +34,23 @@ const Navbar = () => {
     }
 
     function toggleNotification(){
-        const noti = document.querySelector('.appointment-card');
-        if(!noti)
-            alert('You need to make sure you are logged in and have booked an appointment.')
-        noti.hidden = noti.hidden ? false : true;
+        const noti = document.querySelectorAll('.appointment-card');
+        if(!noti){
+
+            alert('You need to make sure you are logged in and have booked an appointment.');
+            return;
+        }
+        noti.forEach(n=>{
+            if(n.hidden===true){
+                n.hidden=false;
+            }else if(n.hidden===false){
+                n.hidden=true;
+            }
+    })
+
         
         const bellIcons = document.querySelector('.bell_icon i');
-        if(noti.hidden){
+        if(bellIcons.classList.contains('fa-bell')){
             bellIcons.classList.remove('fa-bell');
             bellIcons.classList.add('fa-bell-slash');
         }
