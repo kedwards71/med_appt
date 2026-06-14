@@ -2,7 +2,6 @@
     color: black;
     margin-top: 10rem;
     padding: 30px;
-    justify-self: center;
     text-align: left;
     background: rgba(0,0,0,.15);
     z-index: 999;
@@ -15,6 +14,11 @@
     color: white;
 }
 
+.card-separator{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .appointment-card h3{
     text-align: center;
 }
