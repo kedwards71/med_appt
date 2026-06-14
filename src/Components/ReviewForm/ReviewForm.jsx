@@ -15,9 +15,16 @@ const ReviewForm = () => {
 
         }).catch(err => console.log(err))
     }
+
+    const handleFormSubmit = (e) =>{
+        e.preventDefault();
+
+    }
     useEffect(()=>{
         getAllDoctors();
     },[])
+
+
     return (
         <>
             <div className="review-container">
@@ -39,6 +46,7 @@ const ReviewForm = () => {
                                 <td>{doctor.speciality}</td>
                                 <td>
                                     <Popup
+                                    style={{backgroundColor:'#FFF'}}
                                     trigger={<button className="btn btn-primary">
                                         Feedback
                                     </button>}
@@ -46,6 +54,40 @@ const ReviewForm = () => {
                                     open={showModal}
                                     onClose={()=> setShowModal(false)}
                                     >
+                                        {(close) => (
+                                            <form className="doctorReview"onSubmit={handleFormSubmit} >
+                                                <div className="doctorInformation">
+                                                    <h3>How did {doctor.name} do?</h3>
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="reviewerName">Name</label>
+                                                    <input type="text" placeholder="Name Here" id="reviewerName" />
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="reviewerComments">Review</label>
+                                                    <textarea placeholder="Let us know how you feel..." />
+                                                </div>
+                                                <div className="form-group">
+                                                <div className="stars">
+
+                                                    <input type="radio" name="rating" id="star5" value={5} />
+                                                    <label for="star5">&#9733;</label>
+                                                    <input type="radio" name="rating" id="star4" value={4} />
+                                                    <label for="star4">&#9733;</label>
+                                                    <input type="radio" name="rating" id="star5" value={3} />
+                                                    <label for="star3">&#9733;</label>
+                                                    <input type="radio" name="rating" id="star4" value={2} />
+                                                    <label for="star2">&#9733;</label>
+                                                    <input type="radio" name="rating" id="star5" value={1} />
+                                                    <label  style={{color:"green"}} for="star1">&#9733;</label>
+                                                </div>
+
+                                                </div>
+                                                <div className="form-group">
+                                                    <button className="btn btn-success" type="submit">Submit</button>
+                                                </div>
+                                            </form>
+                                        )}
                                     </Popup>
                                 </td>
                                 <td>Review</td>

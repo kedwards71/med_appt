@@ -18,6 +18,10 @@ border-collapse: collapse;
     
 }
 
+.doctorReview h3{
+    text-align: center;
+}
+
 .review-container h3{
     justify-self: left;
 }
@@ -29,6 +33,11 @@ border-collapse: collapse;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,.30);
+}
+
+.stars{
+    display: flex;
+    
 }
 
 .review-headers{
