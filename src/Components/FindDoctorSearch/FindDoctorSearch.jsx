@@ -28,11 +28,12 @@ const FindDoctorSearch = () => {
         while(ele.firstChild){
             ele.removeChild(ele.firstChild);
         }
+        window.location.reload();
     }
     const handleDoctorSelect = (category,catValue) => {
         setSearchDoctor(catValue);
         setDoctorResultHidden(true);
-        navigate(`/instant-consultation?${category}=${catValue}`);
+        navigate(`/BookingConsultation?${category}=${catValue}`);
         window.location.reload();
     }
 
