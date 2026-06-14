@@ -1,16 +1,21 @@
-html{
-    height: 100%;
+html, body {
+height: 100%;
+margin: 0;
+padding: 0;
 }
-body{
-    height: 100%;
+table {
+height: 100%;
+width: 100%;
+border-collapse: collapse;
 }
 .review-container{
-    margin-top: 6rem;
+    margin-top: 12rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: left;
+    
 }
 
 .review-container h3{
@@ -18,13 +23,12 @@ body{
 }
 
 .review-container table{
-    background: rgba(255, 255, 255, 0.70);
+    background: white;
+    /* background: rgba(255, 255, 255, 0.70); */
 
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,.30);
-    box-shadow: -10px 10px 20px rgba(0,0,0,0.3);
-    height: 100%;
 }
 
 .review-headers{

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import './ReviewForm.css'
 
 const ReviewForm = () => {
     const [doctors,setDoctors] = useState([]);
+    const [showModal,setShowModal] = useState(false);
 
     const getAllDoctors = () =>{
         fetch('https://api.npoint.io/9a5543d36f1460da2f63')
@@ -31,10 +34,20 @@ const ReviewForm = () => {
                     {doctors.map((doctor, index) =>{
                         return(
                             <tr className="review-data">
-                                <td>{index}</td>
+                                <td>{index+1}</td>
                                 <td>{doctor.name}</td>
                                 <td>{doctor.speciality}</td>
-                                <td><button className="btn btn-primary">Feedback</button></td>
+                                <td>
+                                    <Popup
+                                    trigger={<button className="btn btn-primary">
+                                        Feedback
+                                    </button>}
+                                    modal
+                                    open={showModal}
+                                    onClose={()=> setShowModal(false)}
+                                    >
+                                    </Popup>
+                                </td>
                                 <td>Review</td>
                             </tr>
                         )
