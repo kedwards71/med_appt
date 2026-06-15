@@ -35,7 +35,6 @@ const ReviewForm = () => {
 
     const handleFormSubmit = (e) =>{
         e.preventDefault();
-        alert(`Hey ${name} you gave this doctor a rating of ${rating} and a message of ${message} to ${doctorId}`);
         const messageBlock = document.querySelector(`#review${doctorId}`);
         messageBlock.textContent = message;
         for(let i = 0; i < rating; i++)
@@ -46,6 +45,17 @@ const ReviewForm = () => {
         reviewButton.disabled = true;
         reviewButton.style.backgroundColor = 'grey';
         reviewButton.textContent = 'Review Given';
+        const btnGroup = document.querySelector(`#btnGroup${doctorId}`);
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('btn-danger');
+        deleteButton.textContent = 'Delete Review';
+        deleteButton.onclick = () => {
+            reviewButton.textContent ='FeedBack';
+            reviewButton.style.backgroundColor = '';
+            messageBlock.textContent = '';
+            btnGroup.removeChild(deleteButton);
+        }
+        btnGroup.appendChild(deleteButton);
         setDoctorId(-1);
         setRating(0);
         setName('');
@@ -76,7 +86,7 @@ const ReviewForm = () => {
                                 <td>{index+1}</td>
                                 <td>{doctor.name}</td>
                                 <td>{doctor.speciality}</td>
-                                <td>
+                                <td id={`btnGroup${index}`}>
                                     <Popup
                                     style={{backgroundColor:'#FFF'}}
                                     trigger={<button className="btn btn-primary" id={`reviewbtn${index}`}>
@@ -111,14 +121,14 @@ const ReviewForm = () => {
                                                 </div>
 
                                                 </div>
-                                                <div className="form-group">
+                                                <div className="form-group" >
                                                     <button className="btn btn-success" type="submit" onClick={()=>setDoctorId(index)}>Submit</button>
                                                 </div>
                                             </form>
                                         )}
                                     </Popup>
                                 </td>
-                                <td id={`review${index}`}>Review</td>
+                                <td id={`review${index}`}></td>
                             </tr>
                         )
                     })}

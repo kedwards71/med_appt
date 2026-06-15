@@ -12,6 +12,13 @@ const Notification = ({ children }) => {
   const [appointmentData, setAppointmentData] = useState(null);
   const [appList, setAppList] = useState([]);
 
+
+  const updateApp = (oldApp,newEntry) =>{
+    if(newEntry.name!==undefined)
+        return [...oldApp,newEntry];
+    else
+        return oldApp;
+  }
   // useEffect hook to perform side effects in the component
   useEffect(() => {
         if(sessionStorage.getItem('email')!=null)
@@ -44,16 +51,14 @@ const Notification = ({ children }) => {
             }
             const newEntry = {patient:storedAppointmentData,...storedDoctorData}
             data = data.filter((d) => d!== null && d.name != newEntry.name && d.name != '')
-            const updateList = [...data,newEntry];
+            const updateList = updateApp(data,newEntry);
+            console.log(updateList)
             console.log('Data')
             console.log(data);
             console.log('Update')
             console.log(updateList);
-            if(newEntry.name !== undefined)
-            {
-                setAppList(updateList);
-                localStorage.setItem(sessionStorage.getItem('email'),JSON.stringify(updateList));
-            }
+            setAppList(updateList);
+            localStorage.setItem(sessionStorage.getItem('email'),JSON.stringify(updateList));
             console.log('Final Local Storage');
             setAppList(JSON.parse(localStorage.getItem(sessionStorage.getItem('email'))));
             console.log(appList);
