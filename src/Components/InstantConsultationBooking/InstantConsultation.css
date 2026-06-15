@@ -6,14 +6,17 @@
     padding: 0 20px;
     position: static;
     width: 100%;
+
 }
 .layeredBg{
     background: url('../../assets/pexels-pavel-danilyuk-7653331.jpg');
     background-size:cover;
+
     inset: 0;
     background-position: bottom right;
     position:relative;
     z-index: 1;
+    overflow: hidden;
 }
 .layeredBg::before{
     content: "";
