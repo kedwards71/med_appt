@@ -59,6 +59,10 @@ const ProfileForm = () => {
     setEditMode(true);
   };
 
+  const handleExit = () => {
+    document.querySelector("#profile-editor").hidden=true;
+  }
+
   // Function to update state when user inputs new data
   const handleInputChange = (e) => {
     setUpdatedDetails({
@@ -101,6 +105,7 @@ const ProfileForm = () => {
         // Display success message to the user
         alert(`Profile Updated Successfully!`);
         navigate("/");
+        document.querySelector("#profile-editor").hidden=true;
       } else {
         // Handle error case
         throw new Error("Failed to update profile");
@@ -113,40 +118,46 @@ const ProfileForm = () => {
 
   // Render the profile form with different sections based on edit mode
   return (
-    <div className="profile-container" style={{marginTop:'10rem'}}>
+    <div className="profile-container" id="profile-editor" hidden={true} onMouseLeave={handleExit}>
       {editMode ? (
         <form onSubmit={handleSubmit}>
           <label>
             Email:
+            </label>
             <input
               type="email"
               name="email"
-              value={userDetails.email}
+              value={updatedDetails.email}
+              onChange={handleInputChange}
             />
-          </label>
           <label>
             Name:
             <input
                 type="text"
                 name="name"
-                value={userDetails.name}
+                value={updatedDetails.name}
+                onChange={handleInputChange}
             />
           </label>
           <label>
             Phone:
+          </label>
             <input 
                 type="text" 
                 name="phone"
-                value={userDetails.phone}
+                value={updatedDetails.phone}
+                onChange={handleInputChange}
+                pattern="[1-9]{3}-[0-9]{3}-[0-9]{4}$"
+                required
             />
-          </label>
-
           {/* Create similar logic for displaying and editing name and phone from userDetails */}
           <button type="submit">Save</button>
         </form>
       ) : (
         <div className="profile-details">
           <h1>Welcome, {userDetails.name}</h1>
+          <p><b>Email:</b>{userDetails.email}</p>
+          <p><b>Phone:</b>{userDetails.phone}</p>
           {/* Implement code to display and allow editing of phone and email similar to above */}
           <button onClick={handleEdit}>Edit</button>
         </div>

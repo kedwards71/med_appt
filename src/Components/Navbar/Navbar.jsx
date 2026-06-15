@@ -62,15 +62,15 @@ const Navbar = () => {
     }
 
     const handleHover = () => {
-        const profileCard = document.querySelector('.profile-container');
+        const profileCard = document.querySelector('#profile-options');
         profileCard.hidden = false;
-        profileCard.onmouseout = () => handleExit();
+        profileCard.onmouseleave = () => handleExit();
         const welcomeUser = document.querySelector('.welcome-userCard');
         welcomeUser.appendChild(profileCard);
     }
 
     const handleExit = () => {
-        const profileCard = document.querySelector('.profile-container');
+        const profileCard = document.querySelector('#profile-options');
         profileCard.hidden = true;
 
     }

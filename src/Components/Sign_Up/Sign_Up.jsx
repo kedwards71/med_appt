@@ -47,9 +47,9 @@ const Sign_Up = () =>{
             sessionStorage.setItem("email",email);
             sessionStorage.setItem("phone",phone);
             sessionStorage.setItem("password",password);
-            localStorage.setItem(`${email}name`,name);
-            localStorage.setItem(`${email}phone`,phone);
-            localStorage.setItem(`${email}password`,password);
+            // localStorage.setItem(`${email}name`,name);
+            // localStorage.setItem(`${email}phone`,phone);
+            // localStorage.setItem(`${email}password`,password);
             //Redirect to home page
             navigate("/");
             window.location.reload(); //Refresh
