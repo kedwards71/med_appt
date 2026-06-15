@@ -38,6 +38,14 @@ const ReviewForm = () => {
         alert(`Hey ${name} you gave this doctor a rating of ${rating} and a message of ${message} to ${doctorId}`);
         const messageBlock = document.querySelector(`#review${doctorId}`);
         messageBlock.textContent = message;
+        for(let i = 0; i < rating; i++)
+        {
+            messageBlock.textContent += ' ' + '⭐';
+        }
+        const reviewButton = document.querySelector(`#reviewbtn${doctorId}`);
+        reviewButton.disabled = true;
+        reviewButton.style.backgroundColor = 'grey';
+        reviewButton.textContent = 'Review Given';
         setDoctorId(-1);
         setRating(0);
         setName('');
@@ -71,7 +79,7 @@ const ReviewForm = () => {
                                 <td>
                                     <Popup
                                     style={{backgroundColor:'#FFF'}}
-                                    trigger={<button className="btn btn-primary">
+                                    trigger={<button className="btn btn-primary" id={`reviewbtn${index}`}>
                                         Feedback
                                     </button>}
                                     modal
