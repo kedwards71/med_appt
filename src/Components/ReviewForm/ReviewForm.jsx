@@ -6,12 +6,10 @@ import './ReviewForm.css'
 const ReviewForm = () => {
     const [doctors,setDoctors] = useState([]);
     const [showModal,setShowModal] = useState(false);
-    const [reviewInformation,setReviewInformation] = ({
-        email:'',
-        doctor:''
-
-    })
-
+    const [rating,setRating] = useState(0);
+    const [name, setName] = useState('');
+    const [message,setMessage] = useState('');
+    const [doctorId,setDoctorId] = useState(-1);
     const getAllDoctors = () =>{
         fetch('https://api.npoint.io/9a5543d36f1460da2f63')
         .then(res => res.json())
@@ -29,16 +27,25 @@ const ReviewForm = () => {
             else
                 star.style.color ='grey';
         }
+        setRating(number);
 
     }
+
+
 
     const handleFormSubmit = (e) =>{
         e.preventDefault();
-        alert();
-
+        alert(`Hey ${name} you gave this doctor a rating of ${rating} and a message of ${message} to ${doctorId}`);
+        const messageBlock = document.querySelector(`#review${doctorId}`);
+        messageBlock.textContent = message;
+        setDoctorId(-1);
+        setRating(0);
+        setName('');
+        setMessage('');
     }
     useEffect(()=>{
         getAllDoctors();
+        
     },[])
 
 
@@ -76,13 +83,14 @@ const ReviewForm = () => {
                                                 <div className="doctorInformation">
                                                     <h3>How did {doctor.name} do?</h3>
                                                 </div>
+                                                
                                                 <div className="form-group">
                                                     <label htmlFor="reviewerName">Name</label>
-                                                    <input type="text" placeholder="Name Here" id="reviewerName" required />
+                                                    <input type="text" value={name} placeholder="Name Here" id="reviewerName" onChange={(e) =>setName(e.target.value)} required />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="reviewerComments">Review</label>
-                                                    <textarea placeholder="Let us know how you feel..." required/>
+                                                    <textarea placeholder="Let us know how you feel..." value={message} onChange={(e)=>setMessage(e.target.value)} required/>
                                                 </div>
                                                 <div className="form-group">
                                                 <div className="stars">
@@ -96,13 +104,13 @@ const ReviewForm = () => {
 
                                                 </div>
                                                 <div className="form-group">
-                                                    <button className="btn btn-success" type="submit">Submit</button>
+                                                    <button className="btn btn-success" type="submit" onClick={()=>setDoctorId(index)}>Submit</button>
                                                 </div>
                                             </form>
                                         )}
                                     </Popup>
                                 </td>
-                                <td>Review</td>
+                                <td id={`review${index}`}>Review</td>
                             </tr>
                         )
                     })}
