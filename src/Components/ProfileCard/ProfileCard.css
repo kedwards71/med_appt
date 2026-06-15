@@ -1,5 +1,7 @@
 .profile-container{
     position: absolute;
+    margin-top: -10px;
+    padding: 5px;
     min-height: 150px;
     min-width: 180px;
     border: 1px solid black;

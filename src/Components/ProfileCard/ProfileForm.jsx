@@ -99,12 +99,14 @@ const ProfileForm = () => {
         // Update the user details in session storage
         sessionStorage.setItem("name", updatedDetails.name);
         sessionStorage.setItem("phone", updatedDetails.phone);
+        sessionStorage.setItem('email', updatedDetails.email);
 
         setUserDetails(updatedDetails);
         setEditMode(false);
         // Display success message to the user
         alert(`Profile Updated Successfully!`);
         navigate("/");
+        window.location.reload();
         document.querySelector("#profile-editor").hidden=true;
       } else {
         // Handle error case
@@ -129,6 +131,7 @@ const ProfileForm = () => {
               name="email"
               value={updatedDetails.email}
               onChange={handleInputChange}
+              disabled
             />
           <label>
             Name:
