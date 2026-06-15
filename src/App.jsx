@@ -12,6 +12,7 @@ import GiveReviews from "./Components/ReviewForm/GiveReviews.jsx"
 import Notification2 from "./Components/Notification/Notification2.jsx"
 import ProfileCard from "./Components/ProfileCard/ProfileCard.jsx"
 import ProfileForm from "./Components/ProfileCard/ProfileForm.jsx"
+import ReportsLayout from "./Components/ReportsLayout/ReportsLayout"
 
 function App() {
 
@@ -32,8 +33,7 @@ function App() {
               <Route path='/AppointmentForm' element={<AppointmentForm/>}/>
               <Route path='/BookingConsultation' element={<BookingConsultation/>}/>
               <Route path='/GiveReviews' element={<GiveReviews/>}/>
-              <Route path='/ProfileCard' element={<ProfileCard/>}/>
-              <Route path='/ProfileForm' element={<ProfileForm/>}/>
+              <Route path="/ReportsLayout" element={<ReportsLayout/>}/>
           </Routes>
             </Notification>
         </BrowserRouter>
