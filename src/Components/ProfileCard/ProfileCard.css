@@ -11,6 +11,15 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,.30);
     box-shadow: -10px 10px 20px rgba(0,0,0,0.3);
+    text-align: left;
+}
+
+.profile-container h5{
+    text-align: center;
+}
+
+.profile-container input{
+    background-color: white;
 }
 
 .profile-details{

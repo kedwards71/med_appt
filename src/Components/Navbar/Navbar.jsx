@@ -24,7 +24,6 @@ const Navbar = () => {
         const navIcon = document.querySelector(".nav__icon i");
 
         navbarItems.classList.toggle("active");
-
         if(navbarItems.classList.contains("active")){
             navIcon.classList.remove("fa-bars");
             navIcon.classList.add("fa-times");
@@ -112,10 +111,12 @@ const Navbar = () => {
 
                         </>
 
-                        : 
-                        <li className="link"><Link to="/Login">Login</Link></li>
+                        :
+                        <>
+                            <li className="link"><Link to="/Login">Login</Link></li>
+                            <li className="link" id='Sign_Up'><Link to="/Sign_Up">Sign-Up</Link></li>
+                        </> 
                     }
-                    <li className="link"><Link to="/Sign_Up">Sign-Up</Link></li>
                     <li className="link"><Link to="/GiveReviews">Reviews</Link></li>
                     <li className="link"><Link to="/BookingConsultation">Appointments</Link></li>
                     <li className='link'><Link to="instant-consultation">Instant-Consultation</Link></li>

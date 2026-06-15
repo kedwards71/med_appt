@@ -32,7 +32,6 @@ const Login = () => {
     
         // Parse the response JSON
         const json = await res.json();
-        alert(json.name);
         if (json.authtoken) {
           // If authentication token is received, store it in session storage
           sessionStorage.setItem('auth-token', json.authtoken);

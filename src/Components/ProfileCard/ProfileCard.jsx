@@ -22,12 +22,7 @@ const ProfileCard = () => {
             <div className="profile-container" hidden={true}>
                 <div className="profile-card">
                     <h5>Your Profile</h5>
-                    <div className="profile-details">
-                        <p>Email:{userEmail}</p> 
-                        <p>Name:{userName}</p> 
-                        <p>Phone:{userPhone}</p> 
-                        <p>Password:{userPassword}</p> 
-                    </div>
+                    <h5>Your Reports</h5>
                 </div>
             </div>
         </>

@@ -117,14 +117,30 @@ const ProfileForm = () => {
       {editMode ? (
         <form onSubmit={handleSubmit}>
           <label>
-            Email
+            Email:
             <input
               type="email"
               name="email"
               value={userDetails.email}
-              disabled // Disable the email field
             />
           </label>
+          <label>
+            Name:
+            <input
+                type="text"
+                name="name"
+                value={userDetails.name}
+            />
+          </label>
+          <label>
+            Phone:
+            <input 
+                type="text" 
+                name="phone"
+                value={userDetails.phone}
+            />
+          </label>
+
           {/* Create similar logic for displaying and editing name and phone from userDetails */}
           <button type="submit">Save</button>
         </form>
