@@ -69,9 +69,8 @@ const GiveReviews = () => {
 
     return (
         <>
-            <div className="review-container">
-
             <h1>Reviews</h1>
+            <div className="review-container">
                 <table className="review-table">
                     <tr className="review-headers">
                         <th>Serial Number</th>
@@ -88,7 +87,8 @@ const GiveReviews = () => {
                                 <td>{doctor.speciality}</td>
                                 <td id={`btnGroup${index}`}>
                                     <Popup
-                                    style={{backgroundColor:'#FFF'}}
+                                    style={{backgroundColor:'#FFF',
+                                            }}
                                     trigger={<button className="btn btn-primary" id={`reviewbtn${index}`}>
                                         Feedback
                                     </button>}

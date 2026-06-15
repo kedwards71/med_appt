@@ -122,6 +122,15 @@ body{
 
 }
 
+.notificationLog{
+    width: 20px;
+    height: 20px;
+    background-clip: none;
+}
+
+.notificationLog:hover{
+    cursor: pointer;
+}
 /* Mobile Responsiveness */
 @media (max-width: 1395px){
     .nav__logo{
@@ -162,15 +171,18 @@ body{
 
 }
 
-.notificationLog{
-    width: 20px;
-    height: 20px;
-    background-clip: none;
+@media (max-width:425){
+    .bell_icon{
+           font-size: 1.2rem; 
+    }
+    .nav__icon{
+        font-size: 1.2rem;
+    }
+    .nav__logo{
+        font-size: 1.4rem;
+    }
 }
 
-.notificationLog:hover{
-    cursor: pointer;
-}
 
 /* Keyframs for slideDown */
 @keyframes slideDown {

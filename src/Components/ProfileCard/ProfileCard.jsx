@@ -32,10 +32,10 @@ const ProfileCard = () => {
             <div className="profile-container" id="profile-options" hidden={true}>
                 <div className="profile-card">
                     <h5><button className="btn btn-success" onClick={handleProfile}>Your Profile</button></h5>
-                    <h5>Your Reports</h5>
+                    <h5><button className="btn btn-success">Your Reports</button></h5>
                 </div>
             </div>
-            
+
                 <ProfileForm></ProfileForm>
         </>
     )
