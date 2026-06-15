@@ -40,30 +40,49 @@ const Notification = ({ children }) => {
 
             // Set appointmentData state if storedAppointmentData exists
             if (storedAppointmentData) {
-            setAppointmentData(storedAppointmentData);
-            let data = appList;
-            console.log('JSON')
-            console.log(localStorage.getItem(sessionStorage.getItem('email')));
-            if(localStorage.getItem(sessionStorage.getItem('email')) && localStorage.getItem(sessionStorage.getItem('email'))!=='undefined' && JSON.parse(localStorage.getItem(sessionStorage.getItem('email'))).length > 0)
-            {
-                console.log('Data is being updataed');
-                data = [...data,...JSON.parse(localStorage.getItem(sessionStorage.getItem('email')))]
+                setAppointmentData(storedAppointmentData);
+                let data = appList;
+                console.log('JSON')
+                console.log(localStorage.getItem(sessionStorage.getItem('email')));
+                if(localStorage.getItem(sessionStorage.getItem('email')) && localStorage.getItem(sessionStorage.getItem('email'))!=='undefined' && JSON.parse(localStorage.getItem(sessionStorage.getItem('email'))).length > 0)
+                {
+                    console.log('Data is being updataed');
+                    data = [...data,...JSON.parse(localStorage.getItem(sessionStorage.getItem('email')))]
+                }
+                const newEntry = {patient:storedAppointmentData,...storedDoctorData}
+                data = data.filter((d) => d!== null && d.name != newEntry.name && d.name != '')
+                const updateList = updateApp(data,newEntry);
+                console.log(updateList)
+                console.log('Data')
+                console.log(data);
+                console.log('Update')
+                console.log(updateList);
+                setAppList(updateList);
+                localStorage.setItem(sessionStorage.getItem('email'),JSON.stringify(updateList));
+                console.log('Final Local Storage');
+                setAppList(JSON.parse(localStorage.getItem(sessionStorage.getItem('email'))));
+                console.log(appList);
+                // localStorage.removeItem(sessionStorage.getItem('email'))
             }
-            const newEntry = {patient:storedAppointmentData,...storedDoctorData}
-            data = data.filter((d) => d!== null && d.name != newEntry.name && d.name != '')
-            const updateList = updateApp(data,newEntry);
-            console.log(updateList)
-            console.log('Data')
-            console.log(data);
-            console.log('Update')
-            console.log(updateList);
-            setAppList(updateList);
-            localStorage.setItem(sessionStorage.getItem('email'),JSON.stringify(updateList));
-            console.log('Final Local Storage');
-            setAppList(JSON.parse(localStorage.getItem(sessionStorage.getItem('email'))));
-            console.log(appList);
-            // localStorage.removeItem(sessionStorage.getItem('email'))
-        }
+            else if(localStorage.getItem(sessionStorage.getItem('email')) && localStorage.getItem(sessionStorage.getItem('email'))!=='undefined' && JSON.parse(localStorage.getItem(sessionStorage.getItem('email'))).length > 0){
+                console.log('in else')
+                let data = appList;
+                console.log('JSON')
+                console.log(localStorage.getItem(sessionStorage.getItem('email')));
+                if(localStorage.getItem(sessionStorage.getItem('email')) && localStorage.getItem(sessionStorage.getItem('email'))!=='undefined' && JSON.parse(localStorage.getItem(sessionStorage.getItem('email'))).length > 0)
+                {
+                    console.log('Data is being updataed');
+                    data = [...data,...JSON.parse(localStorage.getItem(sessionStorage.getItem('email')))]
+                }
+                data = data.filter((d) => d!== null && d.name != '')
+                console.log('Data')
+                console.log(data);
+                setAppList(data);
+                localStorage.setItem(sessionStorage.getItem('email'),JSON.stringify(data));
+                console.log('Final Local Storage');
+                setAppList(data);
+                console.log(appList);
+            }
     }
     }, []); // Empty dependency array ensures useEffect runs only once after initial render
 
@@ -76,7 +95,7 @@ const Notification = ({ children }) => {
       <Navbar></Navbar>
       {/* Display appointment details if user is logged in and appointmentData is available */}
             <div className='card-separator'>
-      {isLoggedIn && appointmentData && appList &&(
+      {isLoggedIn && (appointmentData||appList) && appList &&(
         appList.map((app)=>(
             <div className="appointment-card" hidden={true}>
               <div className="appointment-card__content">
