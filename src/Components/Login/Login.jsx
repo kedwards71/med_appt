@@ -32,10 +32,17 @@ const Login = () => {
     
         // Parse the response JSON
         const json = await res.json();
+        alert(json.name);
         if (json.authtoken) {
           // If authentication token is received, store it in session storage
           sessionStorage.setItem('auth-token', json.authtoken);
           sessionStorage.setItem('email', email);
+          if(localStorage.getItem(`${email}name`))
+          {
+            sessionStorage.setItem('name',localStorage.getItem(`${email}name`));
+            sessionStorage.setItem('phone',localStorage.getItem(`${email}phone`));
+            sessionStorage.setItem('password',localStorage.getItem(`${email}name`));
+          }
     
           // Redirect to home page and reload the window
           navigate('/');

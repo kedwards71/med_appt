@@ -1,0 +1,19 @@
+.profile-container{
+    position: absolute;
+    min-height: 150px;
+    min-width: 180px;
+    border: 1px solid black;
+    color: Black;
+    background: rgba(125,216,255,.70);
+    justify-self: center;
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.30);
+    box-shadow: -10px 10px 20px rgba(0,0,0,0.3);
+}
+
+.profile-details{
+    text-align: left;
+    font-size: 1rem;
+}

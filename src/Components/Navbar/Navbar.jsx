@@ -3,6 +3,7 @@ import './Navbar.css'
 import medicalTeam from '../../assets/medical-team.png'
 import notificationLogo from '../../assets/noti.svg';
 import { Link } from 'react-router-dom'
+import ProfileCard from '../ProfileCard/ProfileCard';
 
 const Navbar = () => {
         const [email,setEmail] = useState(sessionStorage.getItem('email'));
@@ -35,7 +36,7 @@ const Navbar = () => {
 
     function toggleNotification(){
         const noti = document.querySelectorAll('.appointment-card');
-        if(!noti){
+        if(!noti||!sessionStorage.getItem('email')){
 
             alert('You need to make sure you are logged in and have booked an appointment.');
             return;
@@ -46,7 +47,7 @@ const Navbar = () => {
             }else if(n.hidden===false){
                 n.hidden=true;
             }
-    })
+        })
 
         
         const bellIcons = document.querySelector('.bell_icon i');
@@ -59,6 +60,19 @@ const Navbar = () => {
             bellIcons.classList.add('fa-bell');
         }
 
+    }
+
+    const handleHover = () => {
+        const profileCard = document.querySelector('.profile-container');
+        profileCard.hidden = false;
+        profileCard.onmouseout = () => handleExit();
+        const welcomeUser = document.querySelector('.welcome-userCard');
+        welcomeUser.appendChild(profileCard);
+    }
+
+    const handleExit = () => {
+        const profileCard = document.querySelector('.profile-container');
+        profileCard.hidden = true;
 
     }
     
@@ -89,7 +103,12 @@ const Navbar = () => {
                 <ul className="navbarItems">
                     {email && email.trim() !== '' ? 
                         <>
-                            <li className="link" style={{display:"flex",gap:"10px", alignItems:"baseline"}}>                            <p className='welcome-user'>Hello,<strong>{name}</strong></p> <button className='btn btn-danger mb-2 waves-effect waves-light' onClick={handleLogout}>Logout</button></li>
+                            <li className="link" style={{display:"flex",gap:"10px", alignItems:"baseline"}}> 
+                            <div className="welcome-userCard" onMouseEnter={handleHover} >
+                                <p className='welcome-user'>Hello,<strong>{name}</strong></p> 
+                            </div>
+                                <button className='btn btn-danger mb-2 waves-effect waves-light' onClick={handleLogout}>Logout</button>
+                            </li>
 
                         </>
 
@@ -105,6 +124,7 @@ const Navbar = () => {
             </nav>
 
         </div>
+        <ProfileCard></ProfileCard>
     </div>
     </>
   )
