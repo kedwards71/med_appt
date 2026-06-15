@@ -27,7 +27,7 @@ body{
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,.30);
     box-shadow: -10px 10px 20px rgba(0,0,0,0.3);
-    width: 400px;
+    max-width: 400px;
 
 
 }
@@ -76,4 +76,28 @@ body{
     background: #EC221F;
     color: white;
     border-radius: 8px;
+}
+
+.signup-redir{
+    color:grey;
+}
+
+.signup-redir:hover{
+    color:azure;
+
+}
+
+@media (max-width:430px) {
+    .formButtons{
+        flex-direction: column;
+        width: 50%;
+    }   
+    .formItem{
+        width: 200px;
+    }
+    .card{
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+    }
 }

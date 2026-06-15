@@ -120,7 +120,7 @@ const Sign_Up = () =>{
                         <button type="reset" id="resetButton" class="btn btn-danger mb-2 waves-effect waves-light">Reset</button>
                         {/* {showerr && <div className="err" style={{color:'red'}}>{showerr}</div>} */}
                     </div>
-                    <p>Already have an account? <Link to="/Login"><span>Login</span></Link></p>
+                    <p>Already have an account? <Link to="/Login"><span className="login-redir">Login</span></Link></p>
                 </form>
             </div>
         </div>

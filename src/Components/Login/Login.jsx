@@ -66,7 +66,7 @@ const Login = () => {
             <div class="card">
                 <form class="loginForm" onSubmit={login}>
                     <h2>Login</h2>
-                    <p>Don't have an account? <Link to="/Sign_Up"><span>Sign Up</span></Link></p>
+                    <p>Don't have an account? <Link to="/Sign_Up"><span className="signup-redir">Sign Up</span></Link></p>
 
                     <div class="formItem">
                         <label for="email">Email</label>
@@ -80,7 +80,7 @@ const Login = () => {
                         <button type="submit" id="submitButton" class="btn btn-primary mb-2 mr-1 waves-effect waves-light">Login</button>
                         <button type="reset" id="resetButton" class="btn btn-danger mb-2 waves-effect waves-light">Reset</button>
                     </div>
-                    <p>Forgot Password?</p>
+                    <p style={{color:'white'}}>Forgot Password?</p>
                 </form>
             </div>
         </div>
