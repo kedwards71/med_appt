@@ -33,7 +33,7 @@ const DoctorCard = ({name,speciality, experience, ratings, profilePic}) =>{
             console.log(filteredApp);
             localStorage.setItem(sessionStorage.getItem('email'),JSON.stringify(filteredApp));
         }
-            
+        window.location.reload();    
         localStorage.removeItem(savedApt);
         setAppointments(updatedAppointments);
         localStorage.removeItem('doctorData');

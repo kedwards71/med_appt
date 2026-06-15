@@ -14,7 +14,7 @@ const Notification = ({ children }) => {
 
   // useEffect hook to perform side effects in the component
   useEffect(() => {
-        if(localStorage.getItem('doctorData')!=null && sessionStorage.getItem('email')!=null)
+        if(sessionStorage.getItem('email')!=null)
         {
             // Retrieve stored username, doctor data, and appointment data from sessionStorage and localStorage
             const storedUsername = sessionStorage.getItem('email');
@@ -43,16 +43,19 @@ const Notification = ({ children }) => {
                 data = [...data,...JSON.parse(localStorage.getItem(sessionStorage.getItem('email')))]
             }
             const newEntry = {patient:storedAppointmentData,...storedDoctorData}
-            data = data.filter((d) => d.name !== newEntry.name)
+            data = data.filter((d) => d!== null && d.name != newEntry.name && d.name != '')
             const updateList = [...data,newEntry];
             console.log('Data')
             console.log(data);
             console.log('Update')
             console.log(updateList);
-            setAppList(updateList);
-            localStorage.setItem(sessionStorage.getItem('email'),JSON.stringify(updateList));
+            if(newEntry.name !== undefined)
+            {
+                setAppList(updateList);
+                localStorage.setItem(sessionStorage.getItem('email'),JSON.stringify(updateList));
+            }
             console.log('Final Local Storage');
-            console.log(JSON.parse(localStorage.getItem(sessionStorage.getItem('email'))));
+            setAppList(JSON.parse(localStorage.getItem(sessionStorage.getItem('email'))));
             console.log(appList);
             // localStorage.removeItem(sessionStorage.getItem('email'))
         }
