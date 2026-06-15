@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './ReportsLayout.css';
+import ExamplePdf from '../../assets/patient_report.pdf'
 
 const ReportsLayout = () => {
     const [doctors,setDoctors] = useState([]);
@@ -35,8 +36,8 @@ const ReportsLayout = () => {
                                 <td>{index+1}</td>
                                 <td>{doctor.name}</td>
                                 <td>{doctor.speciality}</td>
-                                <td><button className="btn btn-primary">View Report</button></td>
-                                <td><button className="btn btn-primary">Download Report</button></td>
+                                <td><a href={ExamplePdf} target="_blank"><button className="btn btn-primary">View Report</button></a></td>
+                                <td><a href={ExamplePdf} download={ExamplePdf}><button className="btn btn-primary">Download Report</button></a></td>
                             </tr>
 
                         )

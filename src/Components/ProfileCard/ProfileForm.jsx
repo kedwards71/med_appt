@@ -155,7 +155,7 @@ const ProfileForm = () => {
         </form>
       ) : (
         <div className="profile-details">
-          <h2>Welcome, {userDetails.name}</h>
+          <h2>Welcome, {userDetails.name}</h2>
           <p><b>Email:</b>{userDetails.email}</p>
           <p><b>Phone:</b>{userDetails.phone}</p>
           {/* Implement code to display and allow editing of phone and email similar to above */}
