@@ -6,6 +6,11 @@ import './ReviewForm.css'
 const ReviewForm = () => {
     const [doctors,setDoctors] = useState([]);
     const [showModal,setShowModal] = useState(false);
+    const [reviewInformation,setReviewInformation] = ({
+        email:'',
+        doctor:''
+
+    })
 
     const getAllDoctors = () =>{
         fetch('https://api.npoint.io/9a5543d36f1460da2f63')
@@ -16,8 +21,20 @@ const ReviewForm = () => {
         }).catch(err => console.log(err))
     }
 
+    const handleRatings = (number) => {
+        for(let i = 0; i < 5; i++){
+            const star = document.querySelector(`.star${i+1}`);
+            if(number === i+1 || i+1 < number)
+                 star.style.color = 'gold';
+            else
+                star.style.color ='grey';
+        }
+
+    }
+
     const handleFormSubmit = (e) =>{
         e.preventDefault();
+        alert();
 
     }
     useEffect(()=>{
@@ -61,25 +78,20 @@ const ReviewForm = () => {
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="reviewerName">Name</label>
-                                                    <input type="text" placeholder="Name Here" id="reviewerName" />
+                                                    <input type="text" placeholder="Name Here" id="reviewerName" required />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="reviewerComments">Review</label>
-                                                    <textarea placeholder="Let us know how you feel..." />
+                                                    <textarea placeholder="Let us know how you feel..." required/>
                                                 </div>
                                                 <div className="form-group">
                                                 <div className="stars">
 
-                                                    <input type="radio" name="rating" id="star5" value={5} />
-                                                    <label for="star5">&#9733;</label>
-                                                    <input type="radio" name="rating" id="star4" value={4} />
-                                                    <label for="star4">&#9733;</label>
-                                                    <input type="radio" name="rating" id="star5" value={3} />
-                                                    <label for="star3">&#9733;</label>
-                                                    <input type="radio" name="rating" id="star4" value={2} />
-                                                    <label for="star2">&#9733;</label>
-                                                    <input type="radio" name="rating" id="star5" value={1} />
-                                                    <label  style={{color:"green"}} for="star1">&#9733;</label>
+                                                    <label className="star5" onClick={()=>handleRatings(5)}>&#9733;</label>
+                                                    <label className="star4" onClick={()=>handleRatings(4)}>&#9733;</label>
+                                                    <label className="star3" onClick={()=>handleRatings(3)}>&#9733;</label>
+                                                    <label className="star2" onClick={()=>handleRatings(2)}>&#9733;</label>
+                                                    <label className="star1" onClick={()=>handleRatings(1)}>&#9733;</label>
                                                 </div>
 
                                                 </div>

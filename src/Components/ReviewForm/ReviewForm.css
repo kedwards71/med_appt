@@ -37,7 +37,21 @@ border-collapse: collapse;
 
 .stars{
     display: flex;
-    
+    color: grey;
+    font-size: 3rem;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row-reverse;
+}
+
+.stars input:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label {
+    color: gold;
+}
+
+.stars input{
+    visibility: hidden;
 }
 
 .review-headers{
