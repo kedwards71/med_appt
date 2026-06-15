@@ -10,6 +10,7 @@ import BookingConsultation from "./Components/BookingConsultation.jsx"
 import Notification from "./Components/Notification/Notification.jsx"
 import GiveReviews from "./Components/ReviewForm/GiveReviews.jsx"
 import Notification2 from "./Components/Notification/Notification2.jsx"
+import ProfileCard from "./ProfileCard/ProfileCard.jsx"
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
               <Route path='/AppointmentForm' element={<AppointmentForm/>}/>
               <Route path='/BookingConsultation' element={<BookingConsultation/>}/>
               <Route path='/GiveReviews' element={<GiveReviews/>}/>
+              <Route path='/ProfileCard' element={<ProfileCard/>}/>
               {/* <Route path="/Notification" element={<Notification/>}/> */}
               {/* <Route path="/Notification2" element={<Notification2/>}/> */}
           </Routes>
