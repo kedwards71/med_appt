@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import './ReviewForm.css'
+import './GiveReviews.css'
 
-const ReviewForm = () => {
+const GiveReviews = () => {
     const [doctors,setDoctors] = useState([]);
     const [showModal,setShowModal] = useState(false);
     const [rating,setRating] = useState(0);
@@ -138,4 +138,4 @@ const ReviewForm = () => {
     )
 }
 
-export default ReviewForm;
+export default GiveReviews;
