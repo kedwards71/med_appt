@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './Navbar.css'
 import medicalTeam from '../../assets/medical-team.png'
 import notificationLogo from '../../assets/noti.svg';
@@ -7,6 +7,7 @@ import ProfileCard from '../ProfileCard/ProfileCard';
 
 const Navbar = () => {
         const [email,setEmail] = useState(sessionStorage.getItem('email'));
+        const [authorization,setAuthorization] = useState(false);
         // const [name,setName] = useState('');
         let name = '';
         if(email)
@@ -32,6 +33,7 @@ const Navbar = () => {
             navIcon.classList.add("fa-bars");
         }
     }
+
 
     function toggleNotification(){
         const noti = document.querySelectorAll('.appointment-card');
@@ -74,6 +76,19 @@ const Navbar = () => {
         profileCard.hidden = true;
 
     }
+
+    useEffect(()=>{
+        try{
+            const authtoken = sessionStorage.getItem("auth-token");
+            const email = sessionStorage.getItem("email");
+            if(authtoken||email)
+            {
+                setAuthorization(true)
+            }
+        }catch(error){
+            console.log(error);
+        }
+    },[])
     
   return (
     <>
@@ -125,7 +140,9 @@ const Navbar = () => {
             </nav>
 
         </div>
-        <ProfileCard></ProfileCard>
+        {authorization && (
+            <ProfileCard></ProfileCard>
+            )}
     </div>
     </>
   )

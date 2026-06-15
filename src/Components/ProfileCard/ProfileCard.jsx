@@ -34,8 +34,9 @@ const ProfileCard = () => {
                     <h5><button className="btn btn-success" onClick={handleProfile}>Your Profile</button></h5>
                     <h5>Your Reports</h5>
                 </div>
-                <ProfileForm></ProfileForm>
             </div>
+            
+                <ProfileForm></ProfileForm>
         </>
     )
 }
