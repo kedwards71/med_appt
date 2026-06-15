@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './ProfileCard.css'
+import { Link } from "react-router-dom";
 import ProfileForm from "./ProfileForm";
 
 const ProfileCard = () => {
@@ -32,7 +33,7 @@ const ProfileCard = () => {
             <div className="profile-container" id="profile-options" hidden={true}>
                 <div className="profile-card">
                     <h5><button className="btn btn-success" onClick={handleProfile}>Your Profile</button></h5>
-                    <h5><button className="btn btn-success">Your Reports</button></h5>
+                    <h5><button className="btn btn-success"><Link to="/ReportsLayout">Your Reports</Link></button></h5>
                 </div>
             </div>
 
